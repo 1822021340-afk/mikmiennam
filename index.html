@@ -116,35 +116,52 @@
         .social-circle svg { width: 20px; height: 20px; }
 		/* --- FIX GIAO DIỆN ĐIỆN THOẠI --- */
 @media (max-width: 768px) {
-    /* Ép khung 2 cột gọn gàng */
+    /* Ép khung 2 cột, loại bỏ khoảng cách gap */
     .grid-cards {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        gap: 5px !important;
-        padding: 5px !important;
+        gap: 2px !important; /* Giảm khoảng cách giữa 2 cột xuống gần bằng 0 */
+        padding: 0 !important;  /* Loại bỏ padding của khung lớn */
     }
 
-    /* Thu nhỏ sản phẩm và ép ảnh nằm gọn */
+    /* Ép thẻ sản phẩm khít lại */
     .card-pro {
-        padding: 5px !important;
-        overflow: hidden !important; /* Cắt bỏ phần dư thừa */
+        padding: 2px !important; /* Giảm padding trong từng thẻ sản phẩm */
+        margin: 0 !important;    /* Loại bỏ margin thừa */
+        border: none !important; /* Nếu có viền, tạm thời bỏ đi cho đỡ hở */
     }
 
+    /* Ép ảnh khít lên trên cùng */
     .card-pro img {
         width: 100% !important;
-        height: 120px !important; /* Bạn có thể tăng lên 130px nếu muốn ảnh to hơn một chút */
-        object-fit: cover !important; /* Đây là lệnh quan trọng giúp ảnh lấp đầy khung */
-        display: block !important;    /* Loại bỏ khoảng trắng thừa dưới ảnh */
-        border-radius: 8px 8px 0 0 !important; /* Bo góc trên cho đẹp */
+        height: 110px !important;
+        object-fit: cover !important;
+        margin: 0 !important;
+        display: block !important;
     }
 
-    /* Thu nhỏ chữ để không bị vỡ */
-    .card-pro h3 { font-size: 11px !important; margin: 5px 0 !important; }
-    .card-pro ul { font-size: 9px !important; padding-left: 10px !important; }
+    /* Ép chữ và danh sách thông số khít lại */
+    .card-pro h3 { 
+        font-size: 11px !important; 
+        margin: 2px 0 !important; /* Giảm margin trên dưới tiêu đề */
+        line-height: 1.2 !important; 
+    }
     
-    /* Ép các nút bấm nhỏ lại để không đè lên nhau */
-    .card-actions { display: flex !important; flex-direction: column !important; gap: 2px !important; }
-    .btn-outline, .btn-solid { padding: 5px 2px !important; font-size: 9px !important; }
+    .card-pro ul { 
+        font-size: 9px !important; 
+        margin: 2px 0 !important;  
+        padding-left: 15px !important; /* Giảm lề trái của danh sách */
+    }
+    
+    .card-pro li {
+        margin: 0 !important;      /* Ép các dòng thông số khít lại */
+        padding: 0 !important;
+        line-height: 1.1 !important;
+    }
+
+    /* Ép nút bấm nhỏ lại */
+    .card-actions { gap: 2px !important; margin-top: 5px !important; }
+    .btn-outline, .btn-solid { padding: 3px !important; font-size: 9px !important; }
 }
     </style>
 </head>
