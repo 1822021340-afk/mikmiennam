@@ -132,8 +132,10 @@
 
     .card-pro img {
         width: 100% !important;
-        height: 80px !important; /* Ép chiều cao ảnh thấp xuống */
-        object-fit: cover !important;
+        height: 120px !important; /* Bạn có thể tăng lên 130px nếu muốn ảnh to hơn một chút */
+        object-fit: cover !important; /* Đây là lệnh quan trọng giúp ảnh lấp đầy khung */
+        display: block !important;    /* Loại bỏ khoảng trắng thừa dưới ảnh */
+        border-radius: 8px 8px 0 0 !important; /* Bo góc trên cho đẹp */
     }
 
     /* Thu nhỏ chữ để không bị vỡ */
