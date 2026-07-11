@@ -116,52 +116,35 @@
         .social-circle svg { width: 20px; height: 20px; }
 		/* --- FIX GIAO DIỆN ĐIỆN THOẠI --- */
 @media (max-width: 768px) {
-    /* Ép khung 2 cột, loại bỏ khoảng cách gap */
+    /* Ép khung thẻ sản phẩm đều nhau và không có khoảng trắng */
     .grid-cards {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        gap: 2px !important; /* Giảm khoảng cách giữa 2 cột xuống gần bằng 0 */
-        padding: 0 !important;  /* Loại bỏ padding của khung lớn */
+        gap: 5px !important;
+        padding: 5px !important;
     }
 
-    /* Ép thẻ sản phẩm khít lại */
     .card-pro {
-        padding: 2px !important; /* Giảm padding trong từng thẻ sản phẩm */
-        margin: 0 !important;    /* Loại bỏ margin thừa */
-        border: none !important; /* Nếu có viền, tạm thời bỏ đi cho đỡ hở */
+        padding: 5px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important; /* Đảm bảo các cột cao bằng nhau */
     }
 
-    /* Ép ảnh khít lên trên cùng */
+    /* BÍ KÍP MỚI: Dùng contain thay vì cover để thấy toàn bộ máy */
     .card-pro img {
         width: 100% !important;
-        height: 110px !important;
-        object-fit: cover !important;
-        margin: 0 !important;
-        display: block !important;
+        height: 120px !important;
+        object-fit: contain !important; /* Không cắt ảnh, giữ nguyên tỉ lệ */
+        background-color: #ffffff !important; /* Làm nền trắng sạch sẽ */
+        margin-bottom: 5px !important;
     }
 
-    /* Ép chữ và danh sách thông số khít lại */
-    .card-pro h3 { 
-        font-size: 11px !important; 
-        margin: 2px 0 !important; /* Giảm margin trên dưới tiêu đề */
-        line-height: 1.2 !important; 
-    }
+    /* Thu nhỏ chữ và ép nội dung nằm dưới ảnh */
+    .card-pro h3 { font-size: 11px !important; margin: 2px 0 !important; }
+    .card-pro ul { font-size: 9px !important; padding-left: 15px !important; margin: 2px 0 !important; }
     
-    .card-pro ul { 
-        font-size: 9px !important; 
-        margin: 2px 0 !important;  
-        padding-left: 15px !important; /* Giảm lề trái của danh sách */
-    }
-    
-    .card-pro li {
-        margin: 0 !important;      /* Ép các dòng thông số khít lại */
-        padding: 0 !important;
-        line-height: 1.1 !important;
-    }
-
-    /* Ép nút bấm nhỏ lại */
-    .card-actions { gap: 2px !important; margin-top: 5px !important; }
-    .btn-outline, .btn-solid { padding: 3px !important; font-size: 9px !important; }
+    .card-actions { margin-top: auto !important; } /* Đẩy nút bấm xuống dưới cùng */
 }
     </style>
 </head>
