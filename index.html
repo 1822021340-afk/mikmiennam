@@ -115,36 +115,29 @@
         .btn-tiktok { background: #000000; }
         .social-circle svg { width: 20px; height: 20px; }
 		/* --- FIX GIAO DIỆN ĐIỆN THOẠI --- */
-@media (max-width: 700px) {
-    /* Ép khung thẻ sản phẩm đều nhau và không có khoảng trắng */
-    .grid-cards {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 5px !important;
-        padding: 5px !important;
-    }
-
+@media (max-width: 768px) {
+    /* Đảm bảo khung thẻ sản phẩm không có khoảng cách thừa */
     .card-pro {
         padding: 5px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        height: 100% !important; /* Đảm bảo các cột cao bằng nhau */
-    }
-
-    /* BÍ KÍP MỚI: Dùng contain thay vì cover để thấy toàn bộ máy */
-    .card-pro img {
-        width: 100% !important;
-        height: 2000px !important;
-        object-fit: contain !important; /* Không cắt ảnh, giữ nguyên tỉ lệ */
-        background-color: #ffffff !important; /* Làm nền trắng sạch sẽ */
         margin-bottom: 5px !important;
     }
 
-    /* Thu nhỏ chữ và ép nội dung nằm dưới ảnh */
-    .card-pro h3 { font-size: 21px !important; margin: 2px 0 !important; }
-    .card-pro ul { font-size: 9px !important; padding-left: 15px !important; margin: 2px 0 !important; }
-    
-    .card-actions { margin-top: auto !important; } /* Đẩy nút bấm xuống dưới cùng */
+    /* ĐẨY CHỮ LÊN SÁT ẢNH: Đưa margin-bottom về 0 hoặc số âm nhỏ */
+    .card-pro img {
+        width: 100% !important;
+        height: 120px !important;
+        object-fit: cover !important; 
+        margin-bottom: 0px !important; /* Xóa khoảng trống dưới ảnh */
+        display: block !important;
+    }
+
+    /* ĐẨY CHỮ LÊN SÁT ẢNH: Xóa margin phía trên của tiêu đề */
+    .card-pro h3 { 
+        font-size: 11px !important; 
+        margin-top: 2px !important;   /* Giảm khoảng cách giữa tiêu đề và ảnh */
+        margin-bottom: 2px !important; 
+        line-height: 1.2 !important; 
+    }
 }
     </style>
 </head>
