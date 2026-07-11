@@ -116,18 +116,19 @@
         .social-circle svg { width: 20px; height: 20px; }
 		/* --- FIX GIAO DIỆN ĐIỆN THOẠI --- */
 @media (max-width: 768px) {
-    /* Cho 2 sản phẩm nằm cạnh nhau */
-    .product-grid {
+    /* Sửa đúng tên class là grid-cards */
+    .grid-cards {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
         gap: 10px !important;
     }
     
-    /* Thu nhỏ menu để không bị mất mục */
+    /* Thu nhỏ menu */
     .nav-menu {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
         gap: 5px !important;
         font-size: 10px !important;
-        padding: 0 5px !important;
     }
 }
     </style>
