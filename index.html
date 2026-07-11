@@ -116,32 +116,33 @@
         .social-circle svg { width: 20px; height: 20px; }
 		/* --- FIX GIAO DIỆN ĐIỆN THOẠI --- */
 @media (max-width: 768px) {
-    /* Ép khung chứa sản phẩm thành 2 cột */
+    /* Ép khung 2 cột gọn gàng */
     .grid-cards {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        gap: 8px !important; /* Giảm khoảng cách giữa các sản phẩm */
+        gap: 5px !important;
+        padding: 5px !important;
     }
 
-    /* Ép thẻ sản phẩm nhỏ lại và căn giữa */
+    /* Thu nhỏ sản phẩm và ép ảnh nằm gọn */
     .card-pro {
         padding: 5px !important;
-        font-size: 12px !important; /* Thu nhỏ chữ trong thẻ */
+        overflow: hidden !important; /* Cắt bỏ phần dư thừa */
     }
 
-    /* Ép hình ảnh sản phẩm nhỏ lại để không chiếm hết diện tích */
     .card-pro img {
-        height: 100px !important; /* Cố định chiều cao ảnh để khung đều nhau */
-        object-fit: cover !important; /* Giúp ảnh không bị méo */
+        width: 100% !important;
+        height: 80px !important; /* Ép chiều cao ảnh thấp xuống */
+        object-fit: cover !important;
     }
 
-    /* Thu nhỏ menu */
-    .nav-menu {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 5px !important;
-        font-size: 9px !important;
-    }
+    /* Thu nhỏ chữ để không bị vỡ */
+    .card-pro h3 { font-size: 11px !important; margin: 5px 0 !important; }
+    .card-pro ul { font-size: 9px !important; padding-left: 10px !important; }
+    
+    /* Ép các nút bấm nhỏ lại để không đè lên nhau */
+    .card-actions { display: flex !important; flex-direction: column !important; gap: 2px !important; }
+    .btn-outline, .btn-solid { padding: 5px 2px !important; font-size: 9px !important; }
 }
     </style>
 </head>
