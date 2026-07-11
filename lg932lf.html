@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Máy Xúc Lật LGZT LG932LF - MIK MIỀN NAM</title>
+    
+    <!-- Font chữ chuẩn quốc tế Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === CƠ BẢN === */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #f8f9fc; color: #2b2d42; line-height: 1.6; }
+
+        /* === MENU KÍNH MỜ === */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 12px 0; background: rgba(11, 37, 69, 0.98); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
+        .logo-box { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-text h1 { font-size: 24px; color: #F4A261; font-weight: 900; letter-spacing: 1px; }
+        .logo-text p { font-size: 10px; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-menu { display: flex; list-style: none; gap: 30px; }
+        .nav-menu a { color: #fff; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; }
+        .nav-menu a:hover { color: #F4A261; }
+
+        /* === BREADCRUMB (Thanh điều hướng) === */
+        .breadcrumb { padding: 100px 20px 20px 20px; max-width: 1200px; margin: 0 auto; font-size: 13px; color: #6c757d; font-weight: 500; }
+        .breadcrumb a { color: #0B2545; text-decoration: none; font-weight: 700; }
+        .breadcrumb a:hover { color: #F4A261; }
+
+        /* === KHU VỰC SẢN PHẨM CHÍNH === */
+        .product-detail-container { max-width: 1200px; margin: 0 auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; }
+        
+        /* Cột Trái: Bộ sưu tập ảnh */
+        .gallery-wrap { display: flex; flex-direction: column; gap: 15px; }
+        .main-image { width: 100%; height: 450px; border-radius: 12px; overflow: hidden; border: 1px solid #eee; background: #fff; display: flex; align-items: center; justify-content: center; }
+        .main-image img { width: 100%; height: 100%; object-fit: contain; }
+        
+        /* 5 Ảnh nhỏ (Thumbnail) */
+        .thumbnail-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+        .thumb { height: 80px; border-radius: 8px; border: 2px solid transparent; overflow: hidden; cursor: pointer; transition: 0.3s; background: #fff; }
+        .thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .thumb:hover, .thumb.active { border-color: #F4A261; opacity: 1; }
+        .thumb { opacity: 0.7; }
+        .thumb.active { opacity: 1; }
+
+        /* Cột Phải: Thông tin chốt sale */
+        .product-info h1 { font-size: 32px; color: #0B2545; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; }
+        .brand-badge { display: inline-block; background: #0B2545; color: #fff; padding: 5px 15px; border-radius: 4px; font-size: 12px; font-weight: 700; margin-bottom: 20px; letter-spacing: 1px; }
+        .premium-badge { display: inline-block; background: #e76f51; color: #fff; padding: 5px 15px; border-radius: 4px; font-size: 12px; font-weight: 700; margin-bottom: 20px; letter-spacing: 1px; margin-left: 10px; }
+        
+        .price-box { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .price-box p { font-size: 14px; color: #6c757d; font-weight: 600; margin-bottom: 5px; }
+        .price-box h2 { font-size: 28px; color: #e76f51; font-weight: 900; }
+        
+        .quick-specs { list-style: none; margin-bottom: 30px; }
+        .quick-specs li { padding: 10px 0; border-bottom: 1px dashed #ddd; font-size: 15px; color: #2b2d42; display: flex; justify-content: space-between; font-weight: 500; }
+        .quick-specs li strong { color: #0B2545; }
+
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; }
+        .btn-call { background: #e76f51; color: #fff; text-align: center; padding: 16px; border-radius: 8px; font-weight: 800; font-size: 16px; text-decoration: none; transition: 0.3s; display: block; box-shadow: 0 10px 20px rgba(231, 111, 81, 0.3); }
+        .btn-call:hover { transform: translateY(-3px); background: #d65a3d; }
+        .btn-zalo { background: #0068ff; color: #fff; text-align: center; padding: 16px; border-radius: 8px; font-weight: 800; font-size: 16px; text-decoration: none; transition: 0.3s; display: block; }
+        .btn-zalo:hover { transform: translateY(-3px); background: #0056d6; }
+
+        /* === BẢNG THÔNG SỐ CHI TIẾT & BÀI VIẾT === */
+        .content-section { max-width: 1200px; margin: 0 auto 80px auto; padding: 0 20px; }
+        .tabs { display: flex; gap: 20px; border-bottom: 2px solid #eee; margin-bottom: 30px; }
+        .tab { padding: 15px 25px; font-weight: 800; color: #6c757d; cursor: pointer; font-size: 16px; transition: 0.3s; text-transform: uppercase; }
+        .tab.active { color: #0B2545; border-bottom: 3px solid #F4A261; margin-bottom: -2px; }
+
+        .specs-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+        .specs-table th, .specs-table td { padding: 15px; text-align: left; border: 1px solid #ddd; }
+        .specs-table th { background-color: #f1f3f5; color: #0B2545; font-weight: 700; width: 40%; }
+        .specs-table tr:hover { background-color: #f8f9fc; }
+
+        .article-content { font-size: 15px; color: #4a5568; line-height: 1.8; margin-top: 30px; }
+        .article-content h3 { color: #0B2545; margin: 25px 0 15px 0; font-size: 20px; font-weight: 800; }
+        
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-top: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* Nút cố định */
+        .contact-widgets { position: fixed; bottom: 30px; right: 30px; z-index: 99999; display: flex; flex-direction: column; gap: 10px; }
+        .widget-btn { display: flex; align-items: center; justify-content: center; text-decoration: none; color: #fff; font-weight: 800; padding: 12px 20px; border-radius: 50px; font-size: 13px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .btn-hotline-fixed { background: #e76f51; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .product-detail-container { grid-template-columns: 1fr; }
+            .main-image { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo-box">
+                <div class="logo-text">
+                    <h1>NGUYÊN MIK</h1>
+                    <p>Đỉnh Cao Máy Công Trình</p>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="index.html#xuc-lat">Xúc Lật</a></li>
+                <li><a href="index.html#gap">Máy Gắp</a></li>
+                <li><a href="index.html#xe-nang">Xe Nâng</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="index.html">Trang Chủ</a> &nbsp; / &nbsp; <a href="index.html#xuc-lat">Máy Xúc Lật</a> &nbsp; / &nbsp; <span style="color: #F4A261;">LGZT LG932LF</span>
+    </div>
+
+    <!-- KHU VỰC THÔNG TIN CHÍNH -->
+    <section class="product-detail-container">
+        <!-- Cột Trái: Ảnh -->
+        <div class="gallery-wrap">
+            <div class="main-image">
+                <img id="featured-image" src="lg932lf-1.jpg" alt="Máy xúc lật LGZT 932LF Bản Cao Cấp">
+            </div>
+            
+            <div class="thumbnail-strip">
+                <!-- 5 ẢNH NHỎ của dòng 932LF -->
+                <div class="thumb active" onclick="changeImage('lg932lf-1.jpg', this)"><img src="lg932lf-1.jpg" alt="Góc 1"></div>
+                <div class="thumb" onclick="changeImage('lg932lf-2.jpg', this)"><img src="lg932lf-2.jpg" alt="Góc 2"></div>
+                <div class="thumb" onclick="changeImage('lg932lf-3.jpg', this)"><img src="lg932lf-3.jpg" alt="Góc 3"></div>
+                <div class="thumb" onclick="changeImage('lg932lf-4.jpg', this)"><img src="lg932lf-4.jpg" alt="Góc 4"></div>
+                <div class="thumb" onclick="changeImage('lg932lf-5.jpg', this)"><img src="lg932lf-5.jpg" alt="Góc 5"></div>
+            </div>
+        </div>
+
+        <!-- Cột Phải: Giá & Chốt Sale -->
+        <div class="product-info">
+            <span class="brand-badge">Thương Hiệu LGZT</span>
+            <span class="premium-badge">★ Bản Cao Cấp (Full Option)</span>
+            <h1>Máy Xúc Lật LG932LF</h1>
+            
+            <div class="price-box">
+                <p>Giá tham khảo (Chưa VAT):</p>
+                <h2>Liên Hệ Nhận Ưu Đãi</h2>
+            </div>
+            
+            <ul class="quick-specs">
+                <li>Công suất động cơ: <strong>65 kW (88 HP)</strong></li>
+                <li>Dung tích gầu: <strong>1.0 - 1.2 m³</strong></li>
+                <li>Hệ thống lái: <strong>Tay chang thủy lực (Joystick)</strong></li>
+                <li>Tải trọng nâng: <strong>1500 kg (1.5 Tấn)</strong></li>
+                <li>Tình trạng: <strong>Mới 100%, nhập khẩu nguyên chiếc</strong></li>
+            </ul>
+
+            <div class="action-buttons">
+                <a href="tel:0963094111" class="btn-call">📞 GỌI NGAY: 0963.094.111</a>
+                <a href="https://zalo.me/0963094111" target="_blank" class="btn-zalo">CHAT ZALO NHẬN BÁO GIÁ LĂN BÁNH</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHU VỰC THÔNG SỐ VÀ BÀI VIẾT CỤ THỂ -->
+    <section class="content-section">
+        <div class="tabs">
+            <div class="tab active">THÔNG SỐ KỸ THUẬT</div>
+            <div class="tab">ĐÁNH GIÁ CHI TIẾT & VIDEO</div>
+        </div>
+
+        <!-- Bảng Thông Số Kỹ Thuật -->
+        <table class="specs-table">
+            <tbody>
+                <tr><th>Model máy</th><td>LG932LF (Bản Cao Cấp Full Option)</td></tr>
+                <tr><th>Nhà sản xuất</th><td>Tập đoàn LGZT - Sơn Đông, Trung Quốc</td></tr>
+                <tr><th>Dung tích gầu tiêu chuẩn</th><td>1.0 - 1.2 m³ (Răng gầu đúc chịu lực)</td></tr>
+                <tr><th>Tải trọng nâng định mức</th><td>1.500 kg</td></tr>
+                <tr><th>Trọng lượng hoạt động</th><td>~ 5.200 kg (Nặng và đầm chắc hơn bản thường)</td></tr>
+                <tr><th>Model Động Cơ</th><td>Quanchai / Yunnei (Có Turbo tăng áp, làm mát bằng nước)</td></tr>
+                <tr><th>Công suất động cơ</th><td>65 kW / 2400 rpm</td></tr>
+                <tr><th>Hệ thống điều khiển</th><td>Tay chang thủy lực (Joystick) nhẹ nhàng</td></tr>
+                <tr><th>Chiều cao đổ lớn nhất</th><td>3.200 mm</td></tr>
+                <tr><th>Cự ly xả tải</th><td>950 mm</td></tr>
+                <tr><th>Hệ thống khung gầm</th><td>Thép đúc nguyên khối, khớp nối bản lề kép chịu lực</td></tr>
+                <tr><th>Kích thước lốp</th><td>16/70-20 (Lốp béo bám đường, độ bền cao)</td></tr>
+                <tr><th>Nội thất Cabin</th><td>Ghế đệm hơi, quạt gió, Radio, tầm nhìn toàn cảnh 360 độ</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Bài Viết & Video -->
+        <div class="article-content">
+            <h3>Bản Cao Cấp Nhất Phân Khúc 1.5 Tấn</h3>
+            <p>Nếu bạn đang tìm kiếm một cỗ máy không chỉ khỏe mà còn phải mang lại sự thoải mái tối đa cho người lái, thì <strong>LGZT LG932LF</strong> chính là câu trả lời. Đây là phiên bản cao cấp (Full Option) được nâng cấp toàn diện từ khung gầm, hệ thống lái cho đến nội thất cabin, đáp ứng những yêu cầu khắt khe nhất tại các bãi vật liệu xây dựng, trạm trộn hay xưởng khai thác đá.</p>
+            
+            <h3>Tay Chang Thủy Lực (Joystick) Mượt Mà</h3>
+            <p>Sự khác biệt đáng giá nhất của bản <strong>LF</strong> là hệ thống điều khiển bằng tay chang thủy lực (chỉ thao tác bằng 1 tay) thay vì tay cơ truyền thống. Nâng hạ cần, lật gầu giờ đây nhẹ nhàng như lái máy xúc đào cỡ lớn, giúp người thợ máy vận hành liên tục 8-10 tiếng/ngày mà không hề bị đau mỏi vai gáy.</p>
+            
+            <h3>Khung Gầm Hầm Hố - Đối Trọng Nguyên Khối</h3>
+            <p>Trọng lượng bản thân của LG932LF nặng hơn các phiên bản thường, kết hợp với bộ lốp béo 16/70-20 và hệ thống phanh đĩa trợ lực hơi giúp cỗ máy "bám đất" cực tốt. Dù xúc đầy gầu 1.2 khối vật liệu nặng và nâng lên độ cao 3.2m, máy vẫn đứng vững chãi, không có hiện tượng chao đảo hay bênh đuôi.</p>
+
+            <h3>Video Vận Hành Thực Tế Tại Kho</h3>
+            <!-- KHUNG NHÚNG VIDEO YOUTUBE -->
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video vận hành LG932LF" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nút Gọi Cố Định Góc Màn Hình -->
+    <div class="contact-widgets">
+        <a href="tel:0963094111" class="widget-btn btn-hotline-fixed">📞 0963.094.111</a>
+    </div>
+
+    <!-- SCRIPT XỬ LÝ CHUYỂN ẢNH THUMBNAIL -->
+    <script>
+        function changeImage(imageSrc, element) {
+            document.getElementById('featured-image').src = imageSrc;
+            var thumbs = document.querySelectorAll('.thumb');
+            thumbs.forEach(function(th) { th.classList.remove('active'); });
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

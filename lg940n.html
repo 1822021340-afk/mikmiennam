@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Máy Xúc Lật LGZT LG940N - MIK MIỀN NAM</title>
+    
+    <!-- Font chữ chuẩn quốc tế Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === CƠ BẢN === */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #f8f9fc; color: #2b2d42; line-height: 1.6; }
+
+        /* === MENU KÍNH MỜ === */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 12px 0; background: rgba(11, 37, 69, 0.98); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
+        .logo-box { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-text h1 { font-size: 24px; color: #F4A261; font-weight: 900; letter-spacing: 1px; }
+        .logo-text p { font-size: 10px; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-menu { display: flex; list-style: none; gap: 30px; }
+        .nav-menu a { color: #fff; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; }
+        .nav-menu a:hover { color: #F4A261; }
+
+        /* === BREADCRUMB (Thanh điều hướng) === */
+        .breadcrumb { padding: 100px 20px 20px 20px; max-width: 1200px; margin: 0 auto; font-size: 13px; color: #6c757d; font-weight: 500; }
+        .breadcrumb a { color: #0B2545; text-decoration: none; font-weight: 700; }
+        .breadcrumb a:hover { color: #F4A261; }
+
+        /* === KHU VỰC SẢN PHẨM CHÍNH === */
+        .product-detail-container { max-width: 1200px; margin: 0 auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; }
+        
+        /* Cột Trái: Bộ sưu tập ảnh */
+        .gallery-wrap { display: flex; flex-direction: column; gap: 15px; }
+        .main-image { width: 100%; height: 450px; border-radius: 12px; overflow: hidden; border: 1px solid #eee; background: #fff; display: flex; align-items: center; justify-content: center; }
+        .main-image img { width: 100%; height: 100%; object-fit: contain; }
+        
+        /* 5 Ảnh nhỏ (Thumbnail) */
+        .thumbnail-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+        .thumb { height: 80px; border-radius: 8px; border: 2px solid transparent; overflow: hidden; cursor: pointer; transition: 0.3s; background: #fff; }
+        .thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .thumb:hover, .thumb.active { border-color: #F4A261; opacity: 1; }
+        .thumb { opacity: 0.7; }
+        .thumb.active { opacity: 1; }
+
+        /* Cột Phải: Thông tin chốt sale */
+        .product-info h1 { font-size: 32px; color: #0B2545; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; }
+        .brand-badge { display: inline-block; background: #0B2545; color: #fff; padding: 5px 15px; border-radius: 4px; font-size: 12px; font-weight: 700; margin-bottom: 20px; letter-spacing: 1px; }
+        .power-badge { display: inline-block; background: #c1121f; color: #fff; padding: 5px 15px; border-radius: 4px; font-size: 12px; font-weight: 700; margin-bottom: 20px; letter-spacing: 1px; margin-left: 10px; }
+        
+        .price-box { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .price-box p { font-size: 14px; color: #6c757d; font-weight: 600; margin-bottom: 5px; }
+        .price-box h2 { font-size: 28px; color: #e76f51; font-weight: 900; }
+        
+        .quick-specs { list-style: none; margin-bottom: 30px; }
+        .quick-specs li { padding: 10px 0; border-bottom: 1px dashed #ddd; font-size: 15px; color: #2b2d42; display: flex; justify-content: space-between; font-weight: 500; }
+        .quick-specs li strong { color: #0B2545; }
+
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; }
+        .btn-call { background: #e76f51; color: #fff; text-align: center; padding: 16px; border-radius: 8px; font-weight: 800; font-size: 16px; text-decoration: none; transition: 0.3s; display: block; box-shadow: 0 10px 20px rgba(231, 111, 81, 0.3); }
+        .btn-call:hover { transform: translateY(-3px); background: #d65a3d; }
+        .btn-zalo { background: #0068ff; color: #fff; text-align: center; padding: 16px; border-radius: 8px; font-weight: 800; font-size: 16px; text-decoration: none; transition: 0.3s; display: block; }
+        .btn-zalo:hover { transform: translateY(-3px); background: #0056d6; }
+
+        /* === BẢNG THÔNG SỐ CHI TIẾT & BÀI VIẾT === */
+        .content-section { max-width: 1200px; margin: 0 auto 80px auto; padding: 0 20px; }
+        .tabs { display: flex; gap: 20px; border-bottom: 2px solid #eee; margin-bottom: 30px; }
+        .tab { padding: 15px 25px; font-weight: 800; color: #6c757d; cursor: pointer; font-size: 16px; transition: 0.3s; text-transform: uppercase; }
+        .tab.active { color: #0B2545; border-bottom: 3px solid #F4A261; margin-bottom: -2px; }
+
+        .specs-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+        .specs-table th, .specs-table td { padding: 15px; text-align: left; border: 1px solid #ddd; }
+        .specs-table th { background-color: #f1f3f5; color: #0B2545; font-weight: 700; width: 40%; }
+        .specs-table tr:hover { background-color: #f8f9fc; }
+
+        .article-content { font-size: 15px; color: #4a5568; line-height: 1.8; margin-top: 30px; }
+        .article-content h3 { color: #0B2545; margin: 25px 0 15px 0; font-size: 20px; font-weight: 800; }
+        
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-top: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* Nút cố định */
+        .contact-widgets { position: fixed; bottom: 30px; right: 30px; z-index: 99999; display: flex; flex-direction: column; gap: 10px; }
+        .widget-btn { display: flex; align-items: center; justify-content: center; text-decoration: none; color: #fff; font-weight: 800; padding: 12px 20px; border-radius: 50px; font-size: 13px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .btn-hotline-fixed { background: #e76f51; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .product-detail-container { grid-template-columns: 1fr; }
+            .main-image { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo-box">
+                <div class="logo-text">
+                    <h1>NGUYÊN MIK</h1>
+                    <p>Đỉnh Cao Máy Công Trình</p>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="index.html#xuc-lat">Xúc Lật</a></li>
+                <li><a href="index.html#gap">Máy Gắp</a></li>
+                <li><a href="index.html#xe-nang">Xe Nâng</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="index.html">Trang Chủ</a> &nbsp; / &nbsp; <a href="index.html#xuc-lat">Máy Xúc Lật</a> &nbsp; / &nbsp; <span style="color: #F4A261;">LGZT LG940N</span>
+    </div>
+
+    <!-- KHU VỰC THÔNG TIN CHÍNH -->
+    <section class="product-detail-container">
+        <!-- Cột Trái: Ảnh -->
+        <div class="gallery-wrap">
+            <div class="main-image">
+                <img id="featured-image" src="lg940n-1.jpg" alt="Máy xúc lật LGZT 940N 2 Tấn">
+            </div>
+            
+            <div class="thumbnail-strip">
+                <!-- 5 ẢNH NHỎ của dòng 940N -->
+                <div class="thumb active" onclick="changeImage('lg940n-1.jpg', this)"><img src="lg940n-1.jpg" alt="Góc 1"></div>
+                <div class="thumb" onclick="changeImage('lg940n-2.jpg', this)"><img src="lg940n-2.jpg" alt="Góc 2"></div>
+                <div class="thumb" onclick="changeImage('lg940n-3.jpg', this)"><img src="lg940n-3.jpg" alt="Góc 3"></div>
+                <div class="thumb" onclick="changeImage('lg940n-4.jpg', this)"><img src="lg940n-4.jpg" alt="Góc 4"></div>
+                <div class="thumb" onclick="changeImage('lg940n-5.jpg', this)"><img src="lg940n-5.jpg" alt="Góc 5"></div>
+            </div>
+        </div>
+
+        <!-- Cột Phải: Giá & Chốt Sale -->
+        <div class="product-info">
+            <span class="brand-badge">Thương Hiệu LGZT</span>
+            <span class="power-badge">★ Sức Nâng 2 Tấn</span>
+            <h1>Máy Xúc Lật LG940N</h1>
+            
+            <div class="price-box">
+                <p>Giá tham khảo (Chưa VAT):</p>
+                <h2>Liên Hệ Nhận Ưu Đãi</h2>
+            </div>
+            
+            <ul class="quick-specs">
+                <li>Công suất động cơ: <strong>81 kW (110 HP)</strong></li>
+                <li>Dung tích gầu: <strong>1.2 m³ (Có thể thay đổi)</strong></li>
+                <li>Tải trọng nâng: <strong>2000 kg (2.0 Tấn)</strong></li>
+                <li>Hệ thống phanh: <strong>Phanh đĩa trợ lực hơi (Phanh lốc kê)</strong></li>
+                <li>Tình trạng: <strong>Mới 100%, nhập khẩu nguyên chiếc</strong></li>
+            </ul>
+
+            <div class="action-buttons">
+                <a href="tel:0963094111" class="btn-call">📞 GỌI NGAY: 0963.094.111</a>
+                <a href="https://zalo.me/0963094111" target="_blank" class="btn-zalo">CHAT ZALO NHẬN BÁO GIÁ LĂN BÁNH</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHU VỰC THÔNG SỐ VÀ BÀI VIẾT CỤ THỂ -->
+    <section class="content-section">
+        <div class="tabs">
+            <div class="tab active">THÔNG SỐ KỸ THUẬT</div>
+            <div class="tab">ĐÁNH GIÁ CHI TIẾT & VIDEO</div>
+        </div>
+
+        <!-- Bảng Thông Số Kỹ Thuật -->
+        <table class="specs-table">
+            <tbody>
+                <tr><th>Model máy</th><td>LG940N</td></tr>
+                <tr><th>Nhà sản xuất</th><td>Tập đoàn LGZT - Sơn Đông, Trung Quốc</td></tr>
+                <tr><th>Dung tích gầu tiêu chuẩn</th><td>1.2 m³ (Trang bị răng gầu đúc nguyên khối)</td></tr>
+                <tr><th>Tải trọng nâng định mức</th><td>2.000 kg</td></tr>
+                <tr><th>Trọng lượng hoạt động</th><td>~ 5.800 kg - 6.000 kg</td></tr>
+                <tr><th>Model Động Cơ</th><td>Yuchai / Quanchai (Có Turbo tăng áp)</td></tr>
+                <tr><th>Công suất động cơ</th><td>81 kW / 2400 vòng/phút</td></tr>
+                <tr><th>Chiều cao đổ lớn nhất</th><td>3.200 mm - 3.500 mm (Tùy cấu hình cần)</td></tr>
+                <tr><th>Cự ly xả tải</th><td>1000 mm</td></tr>
+                <tr><th>Hệ thống khung gầm</th><td>Chế tạo từ thép hợp kim, chốt ắc gia cường cỡ lớn</td></tr>
+                <tr><th>Kích thước lốp</th><td>16/70-24 (Lốp bản to, bám đường, chịu tải nặng)</td></tr>
+                <tr><th>Hệ thống phanh</th><td>Phanh đĩa trợ lực hơi (Phanh lốc kê) an toàn cao</td></tr>
+                <tr><th>Hộp số</th><td>Số tự động (Thủy lực) đa cấp</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Bài Viết & Video -->
+        <div class="article-content">
+            <h3>Cỗ Máy Tiên Phong Phân Khúc 2 Tấn</h3>
+            <p>Bước sang phân khúc tải trọng nâng 2 Tấn, <strong>Máy xúc lật LGZT LG940N</strong> được xem là "chiến thần" thực sự tại các trạm trộn bê tông, mỏ đá nhỏ, xưởng dăm gỗ quy mô lớn hoặc các bãi vật liệu có khối lượng luân chuyển hàng hóa khổng lồ mỗi ngày. Với trọng lượng bản thân tiệm cận 6 tấn, cỗ máy này sở hữu sự đầm chắc tuyệt đối mà các dòng máy nhỏ không thể có được.</p>
+            
+            <h3>Động Cơ 81 kW Siêu Khỏe - Có Turbo</h3>
+            <p>Trái tim của LG940N là khối động cơ mạnh mẽ lên tới 81 kW (tương đương 110 mã lực) được trang bị hệ thống Turbo tăng áp. Nguồn sức mạnh dồi dào này cho phép máy cắm ngập gầu 1.2 khối vào bãi đá hộc hoặc xúc múc đất sét đồi một cách nhẹ nhàng mà không có cảm giác bị lịm máy hay đuối sức.</p>
+            
+            <h3>Hệ Thống Phanh Lốc Kê An Toàn Cao</h3>
+            <p>Làm việc với tải trọng lớn, tính an toàn luôn được đặt lên hàng đầu. LG940N được nhà máy LGZT trang bị hệ thống phanh đĩa trợ lực hơi (phanh lốc kê) ở cả 4 bánh, cùng với cỡ lốp lớn 16/70-24. Hệ thống này giúp máy dừng đỗ an toàn trên các địa hình dốc, mặt bằng trơn trượt hoặc khi đang cõng đầy tải vật liệu trên cao.</p>
+
+            <h3>Video Vận Hành Thực Tế Tại Công Trường</h3>
+            <!-- KHUNG NHÚNG VIDEO YOUTUBE -->
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video vận hành LG940N" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nút Gọi Cố Định Góc Màn Hình -->
+    <div class="contact-widgets">
+        <a href="tel:0963094111" class="widget-btn btn-hotline-fixed">📞 0963.094.111</a>
+    </div>
+
+    <!-- SCRIPT XỬ LÝ CHUYỂN ẢNH THUMBNAIL -->
+    <script>
+        function changeImage(imageSrc, element) {
+            document.getElementById('featured-image').src = imageSrc;
+            var thumbs = document.querySelectorAll('.thumb');
+            thumbs.forEach(function(th) { th.classList.remove('active'); });
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

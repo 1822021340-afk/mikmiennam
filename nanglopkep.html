@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Xe Nâng Dầu EP Lốp Kép - MIK MIỀN NAM</title>
+    
+    <!-- Thêm logo nhỏ trên tab trình duyệt -->
+    <link rel="icon" type="image/png" href="logo-mik.png">
+
+    <!-- Font chữ chuẩn quốc tế Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === CƠ BẢN === */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #f8f9fc; color: #2b2d42; line-height: 1.6; }
+
+        /* === MENU KÍNH MỜ === */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 12px 0; background: rgba(11, 37, 69, 0.98); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
+        .logo-box { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-text h1 { font-size: 24px; color: #F4A261; font-weight: 900; letter-spacing: 1px; }
+        .logo-text p { font-size: 10px; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-menu { display: flex; list-style: none; gap: 30px; }
+        .nav-menu a { color: #fff; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s; }
+        .nav-menu a:hover { color: #F4A261; }
+
+        /* === BREADCRUMB (Thanh điều hướng) === */
+        .breadcrumb { padding: 100px 20px 20px 20px; max-width: 1200px; margin: 0 auto; font-size: 13px; color: #6c757d; font-weight: 500; }
+        .breadcrumb a { color: #0B2545; text-decoration: none; font-weight: 700; }
+        .breadcrumb a:hover { color: #F4A261; }
+
+        /* === KHU VỰC SẢN PHẨM CHÍNH (Đã chỉnh cho 1 ảnh duy nhất) === */
+        .product-detail-container { max-width: 1200px; margin: 0 auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+        
+        /* Cột Trái: Ảnh duy nhất */
+        .main-image { width: 100%; height: 500px; border-radius: 12px; overflow: hidden; border: 1px solid #eee; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .main-image img { width: 100%; height: 100%; object-fit: contain; }
+
+        /* Cột Phải: Thông tin chốt sale */
+        .product-info h1 { font-size: 32px; color: #0B2545; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; line-height: 1.3; }
+        .brand-badge { display: inline-block; background: #0B2545; color: #fff; padding: 5px 15px; border-radius: 4px; font-size: 12px; font-weight: 700; margin-bottom: 20px; letter-spacing: 1px; }
+        .highlight-badge { display: inline-block; background: #0068ff; color: #fff; padding: 5px 15px; border-radius: 4px; font-size: 12px; font-weight: 700; margin-bottom: 20px; letter-spacing: 1px; margin-left: 10px; }
+        
+        .price-box { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .price-box p { font-size: 14px; color: #6c757d; font-weight: 600; margin-bottom: 5px; }
+        .price-box h2 { font-size: 28px; color: #e76f51; font-weight: 900; }
+        
+        .quick-specs { list-style: none; margin-bottom: 30px; }
+        .quick-specs li { padding: 10px 0; border-bottom: 1px dashed #ddd; font-size: 15px; color: #2b2d42; display: flex; justify-content: space-between; font-weight: 500; }
+        .quick-specs li strong { color: #0B2545; }
+
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; }
+        .btn-call { background: #e76f51; color: #fff; text-align: center; padding: 16px; border-radius: 8px; font-weight: 800; font-size: 16px; text-decoration: none; transition: 0.3s; display: block; box-shadow: 0 10px 20px rgba(231, 111, 81, 0.3); }
+        .btn-call:hover { transform: translateY(-3px); background: #d65a3d; }
+        .btn-zalo { background: #0068ff; color: #fff; text-align: center; padding: 16px; border-radius: 8px; font-weight: 800; font-size: 16px; text-decoration: none; transition: 0.3s; display: block; }
+        .btn-zalo:hover { transform: translateY(-3px); background: #0056d6; }
+
+        /* === BẢNG THÔNG SỐ CHI TIẾT & BÀI VIẾT === */
+        .content-section { max-width: 1200px; margin: 0 auto 80px auto; padding: 0 20px; }
+        .tabs { display: flex; gap: 20px; border-bottom: 2px solid #eee; margin-bottom: 30px; }
+        .tab { padding: 15px 25px; font-weight: 800; color: #6c757d; cursor: pointer; font-size: 16px; transition: 0.3s; text-transform: uppercase; }
+        .tab.active { color: #0B2545; border-bottom: 3px solid #F4A261; margin-bottom: -2px; }
+
+        .specs-table { width: 100%; border-collapse: collapse; font-size: 15px; margin-bottom: 30px; }
+        .specs-table th, .specs-table td { padding: 15px; text-align: center; border: 1px solid #ddd; }
+        .specs-table th { background-color: #f1f3f5; color: #0B2545; font-weight: 700; }
+        .specs-table td:first-child { text-align: left; font-weight: 600; color: #0B2545; width: 40%; }
+        .specs-table tr:hover { background-color: #f8f9fc; }
+
+        .attachments-box { background: #fff3e0; padding: 25px; border-radius: 12px; border-left: 5px solid #F4A261; margin-bottom: 30px; }
+        .attachments-box h4 { color: #e76f51; font-size: 18px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
+        .attachments-box ul { list-style: none; display: flex; flex-wrap: wrap; gap: 15px; }
+        .attachments-box li { background: #fff; padding: 8px 15px; border-radius: 50px; font-size: 14px; font-weight: 600; color: #0B2545; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+        .article-content { font-size: 15px; color: #4a5568; line-height: 1.8; margin-top: 30px; }
+        .article-content h3 { color: #0B2545; margin: 25px 0 15px 0; font-size: 20px; font-weight: 800; }
+        
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-top: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        /* Nút cố định */
+        .contact-widgets { position: fixed; bottom: 30px; right: 30px; z-index: 99999; display: flex; flex-direction: column; gap: 10px; }
+        .widget-btn { display: flex; align-items: center; justify-content: center; text-decoration: none; color: #fff; font-weight: 800; padding: 12px 20px; border-radius: 50px; font-size: 13px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .btn-hotline-fixed { background: #e76f51; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .product-detail-container { grid-template-columns: 1fr; }
+            .main-image { height: auto; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo-box">
+                <div class="logo-text">
+                    <h1>NGUYÊN MIK</h1>
+                    <p>Đỉnh Cao Máy Công Trình</p>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="index.html#xuc-lat">Xúc Lật</a></li>
+                <li><a href="index.html#gap">Máy Gắp</a></li>
+                <li><a href="index.html#xe-nang">Xe Nâng</a></li>
+                <li><a href="index.html#phu-kien">Phụ Kiện</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="index.html">Trang Chủ</a> &nbsp; / &nbsp; <a href="index.html#xe-nang">Xe Nâng Hàng</a> &nbsp; / &nbsp; <span style="color: #F4A261;">Xe Nâng Dầu EP Lốp Kép</span>
+    </div>
+
+    <!-- KHU VỰC THÔNG TIN CHÍNH -->
+    <section class="product-detail-container">
+        <!-- Cột Trái: Ảnh Duy Nhất -->
+        <div class="main-image">
+            <!-- Bạn thay tên ảnh của bạn vào đây nhé -->
+            <img src="nangeplopkep.jpg" alt="Xe nâng dầu EP Lốp Kép 3 Tấn">
+        </div>
+
+        <!-- Cột Phải: Giá & Chốt Sale -->
+        <div class="product-info">
+            <span class="brand-badge">Thương Hiệu EP</span>
+            <span class="highlight-badge">★ Phiên Bản Lốp Kép</span>
+            <h1>Xe Nâng Dầu EP (3.0 - 3.5 Tấn)</h1>
+            
+            <div class="price-box">
+                <p>Giá tham khảo (Chưa VAT):</p>
+                <h2>Liên Hệ Nhận Ưu Đãi</h2>
+            </div>
+            
+            <ul class="quick-specs">
+                <li>Trọng lượng nâng: <strong>3.000 kg - 3.500 kg</strong></li>
+                <li>Hệ thống lốp: <strong>Lốp kép (Lốp đôi) bám đường tốt</strong></li>
+                <li>Động cơ tùy chọn: <strong>Xinchai / Isuzu bền bỉ</strong></li>
+                <li>Đặc tính: <strong>Vững chãi, không rung lắc khi nâng cao</strong></li>
+                <li>Hệ thống thủy lực: <strong>Vận hành êm, bền bỉ</strong></li>
+            </ul>
+
+            <div class="action-buttons">
+                <a href="tel:0963094111" class="btn-call">📞 GỌI NGAY: 0963.094.111</a>
+                <a href="https://zalo.me/0963094111" target="_blank" class="btn-zalo">CHAT ZALO NHẬN BÁO GIÁ CHI TIẾT</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KHU VỰC THÔNG SỐ VÀ BÀI VIẾT CỤ THỂ -->
+    <section class="content-section">
+        <div class="tabs">
+            <div class="tab active">THÔNG SỐ KỸ THUẬT</div>
+        </div>
+
+        <!-- Bảng Thông Số Kỹ Thuật (So sánh 2 mã) -->
+        <table class="specs-table">
+            <thead>
+                <tr>
+                    <th>HẠNG MỤC THÔNG SỐ</th>
+                    <th>MÃ: CPC/CPCD35 (3.5 Tấn)</th>
+                    <th>MÃ: CPC/CPCD30 (3 Tấn)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Trọng lượng nâng định mức</td><td>3500 kg</td><td>3000 kg</td></tr>
+                <tr><td>Khoảng cách tâm tải trọng</td><td>500 mm</td><td>500 mm</td></tr>
+                <tr><td>Chiều dài (Có càng / Không càng)</td><td>3950 / 2725 mm</td><td>3950 / 2725 mm</td></tr>
+                <tr><td>Chiều rộng tổng thể</td><td>1690 mm</td><td>1690 mm</td></tr>
+                <tr><td>Chiều cao cơ sở</td><td>2090 mm</td><td>2090 mm</td></tr>
+                <tr><td>Khoảng cách trục</td><td>1700 mm</td><td>1700 mm</td></tr>
+                <tr><td>Lốp trước (Lốp kép)</td><td>28x9-15-14PR</td><td>28x9-15-14PR</td></tr>
+                <tr><td>Lốp sau</td><td>6.5-10-10PR</td><td>6.5-10-10PR</td></tr>
+                <tr><td>Kích thước càng nâng</td><td>1225 x 125 x 45 mm</td><td>1225 x 125 x 45 mm</td></tr>
+                <tr><td>Trọng lượng bản thân (Tự trọng)</td><td>4500 kg</td><td>4250 kg</td></tr>
+                <tr><td>Tùy chọn Động cơ</td><td>Xinchai / Isuzu</td><td>Xinchai / Isuzu</td></tr>
+                <tr><td>Công suất động cơ (Kw/rmp)</td><td>40 / 2500</td><td>36.5 / 2650</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Khung giới thiệu Bộ Công Tác -->
+        <div class="attachments-box">
+            <h4>⚙️ Tùy Chọn Lắp Đặt Bộ Công Tác Đa Dạng</h4>
+            <p style="font-size: 14px; color: #4a5568; margin-bottom: 15px;">Xe nâng EP hỗ trợ lắp đặt hoàn hảo các bộ công tác chuyên dụng, tối ưu hóa mọi nhu cầu nâng hạ trong kho bãi của bạn:</p>
+            <ul>
+                <li>Dịch giá (Side Shifter)</li>
+                <li>Gầu xúc (Bucket)</li>
+                <li>Kẹp xoay (Bale Clamp/Roll Clamp)</li>
+                <li>Gật gù (Hinged Forks)</li>
+                <li>Chui cont (Nâng hạ trong Container)</li>
+            </ul>
+        </div>
+
+        <!-- Bài Viết & Video -->
+        <div class="article-content">
+            <h3>Sự Lựa Chọn Hoàn Hảo Cho Địa Hình Phức Tạp</h3>
+            <p>Xe nâng EP lốp kép là phiên bản nâng cấp đặc biệt, giải quyết triệt để nỗi lo trơn trượt tại các xưởng sản xuất, bãi vật liệu có nền đất yếu hoặc lầy lội. Nhờ thiết kế <strong>4 bánh trước (lốp đôi)</strong>, diện tích tiếp xúc mặt đường được mở rộng tối đa, giúp xe di chuyển cực kỳ vững chãi và thoát lầy dễ dàng.</p>
+            
+            <h3>Độ Ổn Định Tuyệt Đối Khi Nâng Cao</h3>
+            <p>Một trong những nhược điểm của xe lốp đơn là dễ bị rung lắc khi nâng hàng nặng lên các giá kệ cao. Với cấu hình lốp kép và khoảng cách trục 1700mm, dòng xe nâng EP 3 Tấn - 3.5 Tấn loại bỏ hoàn toàn sự chao đảo này. Khả năng thăng bằng vượt trội giúp thợ lái tự tin thao tác nâng dỡ hàng hóa cồng kềnh, đảm bảo an toàn tuyệt đối cho hàng hóa và nhân sự.</p>
+
+            <h3>Video Vận Hành Cùng Bộ Công Tác</h3>
+            <p style="font-style: italic; color: #6c757d;">(Kênh YouTube của MIK Miền Nam)</p>
+            <!-- KHUNG NHÚNG VIDEO YOUTUBE -->
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video vận hành Xe Nâng EP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nút Gọi Cố Định Góc Màn Hình -->
+    <div class="contact-widgets">
+        <a href="tel:0963094111" class="widget-btn btn-hotline-fixed">📞 0963.094.111</a>
+    </div>
+
+</body>
+</html>
