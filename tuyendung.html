@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuyển Dụng | NGUYÊN MIK - Đỉnh Cao Máy Công Trình</title>
+    <style>
+        /* =========================================
+           1. FONT CHỮ VÀ RESET CƠ BẢN
+        ========================================= */
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #333; }
+        * { box-sizing: border-box; }
+        
+        /* =========================================
+           2. CSS MENU (CHUẨN PC & MOBILE ĐÃ CHỐT)
+        ========================================= */
+        #header { background: #0b1c2c; width: 100%; position: fixed; top: 0; z-index: 1000; transition: 0.3s; padding: 15px 0; }
+        #header.scrolled { padding: 10px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo-box { text-decoration: none; color: #fff; display: flex; align-items: center; }
+        .logo-text h1 { margin: 0; font-size: 24px; color: #f39c12; }
+        .logo-text p { margin: 0; font-size: 12px; letter-spacing: 1px; }
+
+        .nav-menu-pc { display: flex !important; flex-direction: row !important; gap: 30px !important; list-style: none !important; margin: 0; padding: 0; align-items: center; }
+        .nav-menu-pc a { color: #fff !important; text-decoration: none !important; font-weight: bold !important; font-size: 16px !important; text-transform: uppercase !important; transition: 0.3s; }
+        .nav-menu-pc a:hover { color: #f39c12 !important; }
+        
+        .hamburger { display: none !important; } 
+        .side-menu, .menu-overlay { display: none; }
+
+        /* =========================================
+           3. GIAO DIỆN TUYỂN DỤNG SIÊU CHUYÊN NGHIỆP
+        ========================================= */
+        .page-wrapper { margin-top: 80px; } /* Đẩy nội dung xuống khỏi header */
+        
+        /* Banner Tuyển dụng */
+        .recruit-banner { background: linear-gradient(rgba(11, 28, 44, 0.8), rgba(11, 28, 44, 0.8)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop') center/cover; color: white; text-align: center; padding: 80px 20px; }
+        .recruit-banner h2 { font-size: 40px; color: #f39c12; margin-bottom: 10px; text-transform: uppercase; }
+        .recruit-banner p { font-size: 18px; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+
+        /* Container chứa nội dung */
+        .container { max-width: 1200px; margin: 0 auto; padding: 50px 20px; }
+        .section-title { text-align: center; font-size: 32px; color: #0b1c2c; margin-bottom: 40px; border-bottom: 3px solid #f39c12; display: inline-block; padding-bottom: 10px; left: 50%; position: relative; transform: translateX(-50%); }
+
+        /* Khối Chế độ đãi ngộ */
+        .benefits-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; margin-bottom: 60px; }
+        .benefit-card { background: white; width: calc(33.333% - 20px); padding: 30px 20px; text-align: center; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; border-bottom: 4px solid transparent; }
+        .benefit-card:hover { transform: translateY(-10px); border-bottom: 4px solid #f39c12; }
+        .benefit-card h3 { color: #0b1c2c; margin: 15px 0 10px; }
+        .benefit-card p { font-size: 14px; color: #666; line-height: 1.5; }
+        .benefit-icon { font-size: 40px; color: #f39c12; }
+
+        /* Khối Vị trí tuyển dụng */
+        .job-list { display: flex; flex-direction: column; gap: 20px; }
+        .job-card { background: white; padding: 25px; border-radius: 10px; border-left: 5px solid #0b1c2c; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; transition: 0.3s; }
+        .job-card:hover { border-left-color: #f39c12; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .job-info h3 { margin: 0 0 10px; color: #0b1c2c; font-size: 22px; }
+        .job-meta { display: flex; gap: 15px; font-size: 14px; color: #555; margin-bottom: 10px; }
+        .job-meta span { background: #f1f3f5; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
+        .job-desc { margin: 0; color: #666; font-size: 15px; }
+        .btn-apply { background: #f39c12; color: white; text-decoration: none; padding: 12px 25px; border-radius: 5px; font-weight: bold; text-transform: uppercase; transition: 0.3s; display: inline-block; margin-top: 15px; }
+        .btn-apply:hover { background: #d68910; transform: scale(1.05); }
+
+        /* =========================================
+           4. CSS RESPONSIVE CHO MOBILE (DƯỚI 768px)
+        ========================================= */
+        @media (max-width: 768px) {
+            /* Menu Mobile */
+            .nav-menu-pc { display: none !important; } 
+            .hamburger { display: block !important; font-size: 25px; cursor: pointer; padding: 10px; color: #fff; margin-left: auto; }
+            .side-menu { display: block !important; position: fixed; left: -250px; top: 0; width: 250px; height: 100vh; background: #07090a; transition: 0.3s; z-index: 99999; padding-top: 50px; overflow-y: auto; }
+            .side-menu.active { left: 0 !important; }
+            .side-menu a { display: block; color: #ffffff !important; padding: 15px; text-decoration: none; border-bottom: 1px solid #444; }
+            .close-btn { position: absolute; top: 10px; right: 20px; font-size: 30px; color: white; cursor: pointer; }
+            .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.6); z-index: 99998; }
+            .menu-overlay.active { display: block !important; }
+
+            /* Tuyển dụng Mobile */
+            .recruit-banner h2 { font-size: 28px; }
+            .benefit-card { width: 100%; }
+            .job-card { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .btn-apply { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo-box">
+                <div class="logo-text">
+                    <h1>NGUYÊN MIK</h1>
+                    <p>Đỉnh Cao Máy Công Trình</p>
+                </div>
+            </a>
+            
+            <ul class="nav-menu-pc">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="index.html#xuc-lat">Máy xúc lật</a></li>
+                <li><a href="index.html#xe-nang">Xe nâng</a></li>
+                <li><a href="index.html#phu-kien">Phụ kiện</a></li>
+                <li><a href="tuyendung.html" style="color: #f39c12 !important;">Tuyển dụng</a></li>
+                <li><a href="index.html#lien-he">Liên hệ</a></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">☰</div>
+        </div>
+    </header>
+
+    <!-- NỘI DUNG TRANG TUYỂN DỤNG -->
+    <div class="page-wrapper">
+        
+        <!-- Banner -->
+        <section class="recruit-banner reveal">
+            <h2>Gia Nhập Đội Ngũ MIK Miền Nam</h2>
+            <p>Cùng chúng tôi kiến tạo những giá trị bền vững và chinh phục đỉnh cao mới trong lĩnh vực máy công trình tại Việt Nam.</p>
+        </section>
+
+        <div class="container">
+            
+            <!-- Tại sao chọn chúng tôi -->
+            <h2 class="section-title reveal">Quyền Lợi & Đãi Ngộ</h2>
+            <div class="benefits-grid reveal">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Thu Nhập Không Giới Hạn</h3>
+                    <p>Lương cứng hấp dẫn + Hoa hồng doanh số cực cao. Thưởng nóng, thưởng Tết vượt kỳ vọng.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>Thăng Tiến Nhanh Chóng</h3>
+                    <p>Môi trường công bằng, đánh giá theo năng lực thực tế. Lộ trình lên Trưởng nhóm/Quản lý rõ ràng.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Môi Trường Chuyên Nghiệp</h3>
+                    <p>Đồng nghiệp trẻ trung, máu lửa. Được đào tạo bài bản về kỹ năng bán hàng và kiến thức máy móc B2B.</p>
+                </div>
+            </div>
+
+            <!-- Danh sách công việc -->
+            <h2 class="section-title reveal">Vị Trí Đang Tuyển Dụng</h2>
+            <div class="job-list">
+                
+                <!-- Job 1 -->
+                <div class="job-card reveal">
+                    <div class="job-info">
+                        <h3>Chuyên Viên Kinh Doanh Máy Xúc Lật</h3>
+                        <div class="job-meta">
+                            <span>📍 Đồng Nai / TP.HCM</span>
+                            <span>💵 15 - 50 Triệu (Lương + Thưởng)</span>
+                            <span>⏳ Toàn thời gian</span>
+                        </div>
+                        <p class="job-desc">Tìm kiếm khách hàng doanh nghiệp, tư vấn các dòng máy xúc lật, xe nâng. Không yêu cầu kinh nghiệm, được đào tạo từ A-Z.</p>
+                    </div>
+                    <div>
+                        <a href="tel:0963094111" class="btn-apply">Gọi Ứng Tuyển Ngay</a>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-card reveal">
+                    <div class="job-info">
+                        <h3>Kỹ Thuật Viên Sửa Chữa Máy Trình</h3>
+                        <div class="job-meta">
+                            <span>📍 Đồng Nai / TP.HCM</span>
+                            <span>💵 Thỏa thuận theo năng lực</span>
+                            <span>⏳ Toàn thời gian</span>
+                        </div>
+                        <p class="job-desc">Bảo dưỡng, sửa chữa hệ thống thủy lực, động cơ máy xúc, máy gắp. Có kinh nghiệm là một lợi thế, hỗ trợ ăn ở.</p>
+                    </div>
+                    <div>
+                        <a href="tel:0963094111" class="btn-apply">Gọi Ứng Tuyển Ngay</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- KHUNG MENU TRƯỢT MOBILE -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <div class="close-btn" id="close-btn">&times;</div>
+        <a href="index.html">Trang chủ</a>
+        <a href="index.html#xuc-lat">Máy xúc lật</a>
+        <a href="index.html#xe-nang">Xe nâng</a>
+        <a href="index.html#phu-kien">Phụ kiện</a>
+        <a href="tuyendung.html" style="color: #f39c12 !important;">Tuyển dụng</a>
+        <a href="index.html#lien-he">Liên hệ</a>
+    </div>
+
+    <!-- JAVASCRIPT ĐIỀU KHIỂN (DÙNG CHUNG) -->
+    <script>
+        // Hiệu ứng Header mờ khi cuộn
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (header) {
+                if (window.scrollY > 50) { header.classList.add('scrolled'); }
+                else { header.classList.remove('scrolled'); }
+            }
+        });
+
+        // Hiệu ứng Hiện lên (Reveal)
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 50; // Cho hiện sớm hơn một chút
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', reveal);
+        reveal(); 
+
+        // Đóng mở Menu Mobile
+        const hamburger = document.getElementById('hamburger');
+        const sideMenu = document.getElementById('side-menu');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('menu-overlay');
+
+        if (hamburger && sideMenu && overlay) {
+            hamburger.addEventListener('click', () => {
+                sideMenu.classList.add('active');
+                overlay.classList.add('active');
+            });
+        }
+
+        function closeMenu() {
+            if (sideMenu) sideMenu.classList.remove('active');
+            if (overlay) overlay.classList.remove('active');
+        }
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+
+        const menuLinks = document.querySelectorAll('.side-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
+</body>
+</html>
