@@ -212,29 +212,85 @@
     margin: 0 auto !important;
 }
 /* --- KẾT THÚC --- */
-    </style>
+
+/* =========================================
+   1. CSS MENU TRÊN PC (MÀN HÌNH LỚN)
+========================================= */
+.nav-menu-pc {
+    display: flex; 
+    gap: 30px; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+.nav-menu-pc a {
+    color: #fff; 
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.nav-menu-pc a:hover {
+    color: #f39c12; 
+}
+
+.hamburger { display: none; }
+.side-menu, .menu-overlay { display: none; }
+
+/* =========================================
+   2. CSS MENU TRÊN MOBILE (MÀN HÌNH NHỎ)
+========================================= */
+@media (max-width: 768px) {
+    .nav-menu-pc { display: none; } 
+    
+    .hamburger { display: block; font-size: 25px; cursor: pointer; padding: 10px; color: #fff; }
+    
+    .side-menu {
+        display: block; 
+        position: fixed; left: -250px; top: 0; width: 250px; height: 100vh;
+        background: #07090a; transition: 0.3s; z-index: 99999; padding-top: 50px;
+        overflow-y: auto;
+    }
+    .side-menu.active { left: 0; }
+    .side-menu a { display: block; color: #ffffff !important; padding: 15px; text-decoration: none; border-bottom: 1px solid #444; }
+    .close-btn { position: absolute; top: 10px; right: 20px; font-size: 30px; color: white; cursor: pointer; }
+    
+    .menu-overlay {
+        display: none; 
+        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background: rgba(0, 0, 0, 0.6); z-index: 99998;
+    }
+    .menu-overlay.active { display: block; }
+}
+</style>
 </head>
 <body>
 
     <!-- HEADER KÍNH MỜ -->
     <header id="header">
-        <div class="nav-container">
-            <a href="#" class="logo-box">
-                <div class="logo-text">
-                    <h1>NGUYÊN MIK</h1>
-                    <p>Đỉnh Cao Máy Công Trình</p>
-                </div>
-            </a>
-            <!-- Thay đoạn menu cũ bằng đoạn này -->
-<ul class="nav-menu">
-    <li><a href="index.html">Trang Chủ</a></li>
-    <li><a href="index.html#xuc-lat">Xúc Lật</a></li>
-    <li><a href="index.html#gap">Máy Gắp</a></li>
-    <li><a href="index.html#xe-nang">Xe Nâng</a></li>
-    <li><a href="index.html#phu-kien">Phụ Kiện</a></li>
-</ul>
-        </div>
-    </header>
+    <div class="nav-container">
+        <!-- Logo -->
+        <a href="index.html" class="logo-box">
+            <div class="logo-text">
+                <h1>NGUYÊN MIK</h1>
+                <p>Đỉnh Cao Máy Công Trình</p>
+            </div>
+        </a>
+        
+        <!-- MENU NGANG CHỈ HIỂN THỊ TRÊN PC -->
+        <ul class="nav-menu-pc">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="index.html#xuc-lat">Máy xúc lật</a></li>
+            <li><a href="index.html#xe-nang">Xe nâng</a></li>
+            <li><a href="index.html#phu-kien">Phụ kiện</a></li>
+            <li><a href="index.html#lien-he">Liên hệ</a></li>
+        </ul>
+
+        <!-- Nút 3 gạch (Sẽ bị ẩn trên PC, chỉ hiện trên Mobile) -->
+        <div class="hamburger" id="hamburger">☰</div>
+    </div>
+</header>
 
     <!-- BANNER TRÀN VIỀN -->
     <section class="hero">
@@ -753,15 +809,33 @@
     <!-- ================================================================= -->
     <!-- SCRIPT ĐIỀU KHIỂN HIỆU ỨNG VÀ NÚT BẤM -->
     <!-- ================================================================= -->
+    <!-- ==========================================
+         1. PHẦN KHUNG MENU TRƯỢT (BẮT BUỘC PHẢI CÓ)
+    =========================================== -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <div class="close-btn" id="close-btn">&times;</div>
+        <a href="index.html">Trang chủ</a>
+        <a href="#xuc-lat">Máy xúc lật</a>
+        <a href="#xe-nang">Xe nâng</a>
+        <a href="#phu-kien">Phụ kiện</a>
+        <a href="#lien-he">Liên hệ</a>
+    </div>
+
+    <!-- ==========================================
+         2. PHẦN JAVASCRIPT ĐIỀU KHIỂN (ĐÃ HOÀN THIỆN)
+    =========================================== -->
     <script>
-        // Hiệu ứng Header mờ
+        // 1. Hiệu ứng Header mờ
         window.addEventListener('scroll', function() {
             var header = document.getElementById('header');
-            if (window.scrollY > 50) { header.classList.add('scrolled'); } 
-            else { header.classList.remove('scrolled'); }
+            if (header) {
+                if (window.scrollY > 50) { header.classList.add('scrolled'); }
+                else { header.classList.remove('scrolled'); }
+            }
         });
 
-        // Hiệu ứng Hiện lên (Reveal)
+        // 2. Hiệu ứng Hiện lên (Reveal)
         function reveal() {
             var reveals = document.querySelectorAll('.reveal');
             for (var i = 0; i < reveals.length; i++) {
@@ -774,13 +848,14 @@
             }
         }
         window.addEventListener('scroll', reveal);
-        reveal(); // Chạy ngay khi load
+        reveal(); 
 
-        // Nút Xem Thêm Sản Phẩm Độc Lập
+        // 3. Nút Xem Thêm / Thu Gọn
         function toggleSection(sectionId, button) {
             var section = document.getElementById(sectionId);
-            var defaultText = button.innerHTML.replace(" ▲", " ▼").replace("Thu Gọn", "Xem Thêm");
-            
+            if (!section) return;
+            var defaultText = button.innerHTML.replace("▲", "▼").replace("Thu Gọn", "Xem Thêm");
+
             if (section.style.display === "block") {
                 section.style.display = "none";
                 button.innerHTML = defaultText;
@@ -789,7 +864,32 @@
                 button.innerHTML = defaultText.replace("Xem Thêm", "Thu Gọn").replace("▼", "▲");
             }
         }
-    </script>
 
+        // 4. Menu Trượt Mobile
+        const hamburger = document.getElementById('hamburger');
+        const sideMenu = document.getElementById('side-menu');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('menu-overlay');
+
+        if (hamburger && sideMenu && overlay) {
+            hamburger.addEventListener('click', () => {
+                sideMenu.classList.add('active');
+                overlay.classList.add('active');
+            });
+        }
+
+        function closeMenu() {
+            if (sideMenu) sideMenu.classList.remove('active');
+            if (overlay) overlay.classList.remove('active');
+        }
+
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+
+        const menuLinks = document.querySelectorAll('.side-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
 </body>
 </html>
