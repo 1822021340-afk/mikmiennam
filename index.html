@@ -199,7 +199,22 @@
         margin: 0 !important;
     }
 }
+/* --- SỬA KHUNG ẢNH ĐỂ KHÔNG BỊ CẮT MẤT NỘI DUNG --- */
+.img-wrap {
+    height: auto !important; 
+    min-height: 200px !important; /* Đảm bảo khung đủ cao */
+    overflow: visible !important;
+}
 
+.card-pro img {
+    width: 100% !important;
+    height: auto !important; /* Tự động theo tỉ lệ ảnh */
+    max-height: 350px !important; /* Giới hạn độ cao tối đa để khung nhìn hài hòa */
+    object-fit: contain !important; /* Lệnh này ép ảnh hiển thị trọn vẹn, không bị xén */
+    display: block !important;
+    margin: 0 auto !important;
+}
+/* -------------------------------------------------- */
     </style>
 </head>
 <body>
