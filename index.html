@@ -94,7 +94,7 @@
 
         /* === NÚT LIÊN HỆ CỐ ĐỊNH === */
         .contact-widgets { position: fixed; bottom: 30px; right: 30px; z-index: 99999; display: flex; flex-direction: column; gap: 15px; }
-        .widget-btn { display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 800; padding: 15px 25px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); font-size: 14px; transition: 0.3s; text-transform: uppercase; }
+        .widget-btn { display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 800; padding: 5px 15px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); font-size: 14px; transition: 0.3s; text-transform: uppercase; }
         .widget-btn:hover { transform: translateY(-5px); }
         .btn-hotline { background: #e76f51; }
         .btn-zalo-chat { background: #0068ff; }
@@ -114,6 +114,7 @@
         .btn-ytb { background: #FF0000; }
         .btn-tiktok { background: #000000; }
         .social-circle svg { width: 20px; height: 20px; }
+		
 		/* --- FIX GIAO DIỆN ĐIỆN THOẠI --- */
 /* --- BẢN FIX GIAO DIỆN MOBILE HOÀN CHỈNH --- */
 @media (max-width: 768px) {
@@ -168,11 +169,18 @@
         line-height: 1.3 !important;
     }
     
-    .card-pro ul {
-        font-size: 10px !important;
-        padding-left: 15px !important;
-        margin: 0 0 10px 0 !important;
-        flex-grow: 1 !important; /* Lực đẩy ma thuật: Đẩy phần nút bấm xuống sát đáy */
+    ./* --- ẨN BỚT CHỮ TRÊN MOBILE CHO GỌN GÀNG TỐI ĐA --- */
+    .card-pro ul, .card-pro p {
+        display: none !important; /* Lệnh ma thuật giấu toàn bộ phần chữ mô tả dài dòng */
+    }
+    
+    .card-pro h3 {
+        font-size: 12px !important;
+        margin-bottom: 10px !important;
+        height: 32px !important; /* Giữ chiều cao cố định cho tên máy để các khung bằng nhau */
+        overflow: hidden !important;
+    }
+    /* -------------------------------------------------- */
     }
     
     .card-actions {
@@ -191,6 +199,7 @@
         margin: 0 !important;
     }
 }
+
     </style>
 </head>
 <body>
@@ -560,7 +569,7 @@
                     <div class="img-wrap"><a href="#" style="display: block; width: 100%; height: 100%;"><img src="bo-thao-lap.jpg" alt="Bộ tháo lắp nhanh"></a></div>
                     <div class="card-content">
                         <h3>Gầu Nông Sản (Gầu Thể Tích Lớn)</h3>
-                        <ul class="specs"><li>Thể tích chứa mở rộng tối đa, tăng gấp đôi năng suất xúc đổ.</li><li>Thiết kế thành gầu chống tràn, tối ưu cho vật liệu có tỷ trọng nhẹ.</li><li>Phù hợp xúc hạt điều, dăm gỗ, mùn cưa, than cám, thức ăn chăn nuôi...</li></ul>
+                        <ul class="specs"><li>Thể tích chứa mở rộng tối đa, tăng gấp đôi năng suất xúc đổ.</li><li>Thiết kế thành gầu chống tràn, tối ưu cho vật liệu có tỷ trọng nhẹ.</li></ul>
                         <div class="card-actions"><a href="tel:0963094111" class="btn-outline">Tư Vấn Ngay</a><a href="#" class="btn-solid">Liên Hệ</a></div>
                     </div>
                 </div>
@@ -625,7 +634,7 @@
                         <span style="background:#0B2545; color:#fff; padding:5px 10px; font-size:12px; font-weight:800; border-radius:4px;">MẸO BẢO DƯỠNG</span>
                         <h3 style="margin-top: 15px;">Cách bảo dưỡng máy xúc lật LGZT để tăng tuổi thọ</h3>
                         <p style="color:#6c757d; line-height: 1.6; margin-bottom: 20px;">Hướng dẫn chi tiết lịch trình thay dầu thủy lực, kiểm tra hệ thống lọc gió định kỳ giúp máy vận hành trơn tru...</p>
-                        <a href="bao-duong-may-xuc-lat.html" style="color:#F4A261; font-weight:800; text-decoration:none;">ĐỌC BÀI VIẾT →</a>
+                        <a href="baoduong.html" style="color:#F4A261; font-weight:800; text-decoration:none;">ĐỌC BÀI VIẾT →</a>
                     </div>
                 </div>
 
