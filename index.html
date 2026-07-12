@@ -115,28 +115,80 @@
         .btn-tiktok { background: #000000; }
         .social-circle svg { width: 20px; height: 20px; }
 		/* --- FIX GIAO DIỆN ĐIỆN THOẠI --- */
+/* --- BẢN FIX GIAO DIỆN MOBILE HOÀN CHỈNH --- */
 @media (max-width: 768px) {
-    /* Đảm bảo khung thẻ sản phẩm không có khoảng cách thừa */
+    /* --- MENU --- */
+    .nav-menu {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        padding: 0 5px !important;
+    }
+    .nav-menu li a { font-size: 11px !important; }
+
+    /* --- KHUNG LƯỚI --- */
+    .grid-cards {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 5px !important; 
+        padding: 5px !important;
+    }
+
+    /* --- THẺ SẢN PHẨM TỔNG THỂ --- */
     .card-pro {
         padding: 5px !important;
-        margin-bottom: 5px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
     }
 
-    /* ĐẨY CHỮ LÊN SÁT ẢNH: Đưa margin-bottom về 0 hoặc số âm nhỏ */
+    /* --- ĐÂY LÀ PHẦN XÓA KHOẢNG TRẮNG --- */
+    .img-wrap {
+        height: auto !important; /* Hủy bỏ chiều cao cố định của khung chứa ảnh */
+        width: 100% !important;
+        margin-bottom: 5px !important; /* Khoảng cách nhỏ giữa ảnh và chữ */
+    }
+    
     .card-pro img {
         width: 100% !important;
-        height: 120px !important;
-        object-fit: cover !important; 
-        margin-bottom: -10px !important; /* Xóa khoảng trống dưới ảnh */
+        height: auto !important; /* Để ảnh tự động co giãn ôm sát khung */
+        max-height: none !important; /* Hủy bỏ mọi giới hạn chiều cao cũ */
+        object-fit: contain !important; /* Hiển thị đủ chữ trên ảnh */
         display: block !important;
+        margin: 0 auto !important;
     }
+    /* ------------------------------------- */
 
-    /* ĐẨY CHỮ LÊN SÁT ẢNH: Xóa margin phía trên của tiêu đề */
-    .card-pro h3 { 
-        font-size: 11px !important; 
-        margin-top: 0.5px !important;   /* Giảm khoảng cách giữa tiêu đề và ảnh */
-        margin-bottom: 2px !important; 
-        line-height: 1.2 !important; 
+    /* --- CHỮ VÀ NÚT BẤM --- */
+    .card-pro h3 {
+        font-size: 11px !important;
+        text-align: center !important;
+        margin: 0 0 5px 0 !important;
+        line-height: 1.3 !important;
+    }
+    
+    .card-pro ul {
+        font-size: 10px !important;
+        padding-left: 15px !important;
+        margin: 0 0 10px 0 !important;
+        flex-grow: 1 !important; /* Lực đẩy ma thuật: Đẩy phần nút bấm xuống sát đáy */
+    }
+    
+    .card-actions {
+        display: flex !important;
+        flex-direction: column !important; /* Xếp 2 nút dọc lên nhau */
+        gap: 5px !important;
+        margin-top: auto !important;
+    }
+    
+    .btn-outline, .btn-solid {
+        width: 100% !important; 
+        font-size: 10px !important;
+        padding: 6px 0 !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
     }
 }
     </style>
