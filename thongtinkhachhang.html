@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yêu Cầu Báo Giá | NGUYÊN MIK</title>
+    <style>
+        /* =========================================
+           1. FONT CHỮ VÀ RESET CƠ BẢN
+        ========================================= */
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f8; color: #333; }
+        * { box-sizing: border-box; }
+        
+        /* =========================================
+           2. CSS MENU (CHUẨN PC & MOBILE)
+        ========================================= */
+        #header { background: #0b1c2c; width: 100%; position: fixed; top: 0; z-index: 1000; transition: 0.3s; padding: 15px 0; }
+        #header.scrolled { padding: 10px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo-box { text-decoration: none; color: #fff; display: flex; align-items: center; }
+        .logo-text h1 { margin: 0; font-size: 24px; color: #f39c12; }
+        .logo-text p { margin: 0; font-size: 12px; letter-spacing: 1px; }
+
+        .nav-menu-pc { display: flex !important; flex-direction: row !important; gap: 30px !important; list-style: none !important; margin: 0; padding: 0; align-items: center; }
+        .nav-menu-pc a { color: #fff !important; text-decoration: none !important; font-weight: bold !important; font-size: 16px !important; text-transform: uppercase !important; transition: 0.3s; }
+        .nav-menu-pc a:hover { color: #f39c12 !important; }
+        
+        .hamburger { display: none !important; } 
+        .side-menu, .menu-overlay { display: none; }
+
+        /* =========================================
+           3. CSS GIAO DIỆN TRANG LIÊN HỆ TƯ VẤN
+        ========================================= */
+        .checkout-wrapper { margin-top: 100px; padding: 40px 20px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .checkout-title { text-align: center; color: #0b1c2c; font-size: 32px; margin-bottom: 10px; text-transform: uppercase; }
+        .checkout-subtitle { text-align: center; color: #666; font-size: 16px; margin-bottom: 40px; }
+        
+        .checkout-layout { display: flex; gap: 30px; flex-wrap: wrap; align-items: flex-start; }
+        
+        /* Cột trái: Form thông tin */
+        .checkout-form { flex: 1; min-width: 320px; background: #fff; padding: 35px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .checkout-form h3 { border-bottom: 2px solid #eee; padding-bottom: 15px; margin-top: 0; color: #0b1c2c; font-size: 22px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #444; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 15px; border: 1px solid #ccc; border-radius: 8px; font-family: inherit; font-size: 15px; outline: none; transition: 0.3s; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: #f39c12; box-shadow: 0 0 5px rgba(243, 156, 18, 0.3); }
+        
+        /* Cột phải: Cam kết uy tín (Thay cho QR Code) */
+        .checkout-summary { width: 420px; background: #0b1c2c; color: #fff; padding: 35px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .checkout-summary h3 { margin-top: 0; color: #f39c12; font-size: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
+        
+        .trust-list { list-style: none; padding: 0; margin: 20px 0 0 0; }
+        .trust-list li { display: flex; align-items: flex-start; margin-bottom: 20px; font-size: 15px; line-height: 1.5; }
+        .trust-icon { font-size: 20px; margin-right: 15px; color: #f39c12; }
+        
+        .hotline-box { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 20px; text-align: center; margin-top: 30px; }
+        .hotline-box p { margin: 0; font-size: 14px; color: #ccc; }
+        .hotline-box h4 { margin: 10px 0 0 0; font-size: 28px; color: #f39c12; }
+
+        .btn-confirm { display: block; width: 100%; background: #f39c12; color: #fff; text-align: center; padding: 16px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 25px; transition: 0.3s; box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4); }
+        .btn-confirm:hover { background: #d68910; transform: translateY(-2px); }
+
+        /* =========================================
+           4. CSS RESPONSIVE CHO MOBILE (DƯỚI 768px)
+        ========================================= */
+        @media (max-width: 768px) {
+            .nav-menu-pc { display: none !important; } 
+            .hamburger { display: block !important; font-size: 25px; cursor: pointer; padding: 10px; color: #fff; margin-left: auto; }
+            .side-menu { display: block !important; position: fixed; left: -250px; top: 0; width: 250px; height: 100vh; background: #07090a; transition: 0.3s; z-index: 99999; padding-top: 50px; overflow-y: auto; }
+            .side-menu.active { left: 0 !important; }
+            .side-menu a { display: block; color: #ffffff !important; padding: 15px; text-decoration: none; border-bottom: 1px solid #444; }
+            .close-btn { position: absolute; top: 10px; right: 20px; font-size: 30px; color: white; cursor: pointer; }
+            .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.6); z-index: 99998; }
+            .menu-overlay.active { display: block !important; }
+
+            .checkout-wrapper { padding: 20px 15px; }
+            .checkout-summary { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo-box">
+                <div class="logo-text">
+                    <h1>NGUYÊN MIK</h1>
+                    <p>Đỉnh Cao Máy Công Trình</p>
+                </div>
+            </a>
+            <ul class="nav-menu-pc">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="index.html#xuc-lat">Máy xúc lật</a></li>
+                <li><a href="index.html#xe-nang">Xe nâng</a></li>
+                <li><a href="index.html#phu-kien">Phụ kiện</a></li>
+                <li><a href="index.html#lien-he">Liên hệ</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">☰</div>
+        </div>
+    </header>
+
+    <!-- NỘI DUNG FORM YÊU CẦU BÁO GIÁ -->
+    <div class="checkout-wrapper">
+        <h2 class="checkout-title">Đăng Ký Nhận Báo Giá</h2>
+        <p class="checkout-subtitle">Để lại thông tin, chuyên viên của NGUYÊN MIK sẽ liên hệ tư vấn dòng máy phù hợp nhất trong vòng 15 phút.</p>
+        
+        <div class="checkout-layout">
+            
+            <!-- FORM ĐIỀN THÔNG TIN (Bên Trái) -->
+            <div class="checkout-form">
+                <h3>Nhập Thông Tin Của Bạn</h3>
+                
+                <!-- Ống dẫn Formspree chuẩn của bạn -->
+                <form id="paymentForm" action="https://formspree.io/f/mdaqnvyn" method="POST">
+                    <div class="form-group">
+                        <label>Họ và Tên / Tên Doanh Nghiệp *</label>
+                        <input type="text" name="Ho_Ten" placeholder="Nhập tên của bạn hoặc công ty" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Số điện thoại Zalo *</label>
+                        <input type="tel" name="So_Dien_Thoai" placeholder="Để chúng tôi gửi báo giá chi tiết" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dòng máy đang quan tâm</label>
+                        <select name="May_Quan_Tam">
+                            <option value="Chưa xác định - Cần tư vấn">-- Tôi cần tư vấn thêm --</option>
+                            <option value="Máy Xúc Lật LG918F">Máy Xúc Lật Nhỏ (LG918F...)</option>
+                            <option value="Máy Xúc Lật Tầm Trung">Máy Xúc Lật Tầm Trung</option>
+                            <option value="Xe Nâng Hàng">Xe Nâng Hàng Các Loại</option>
+                            <option value="Phụ Tùng / Dịch Vụ Khác">Phụ Tùng / Sửa chữa</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Địa điểm nhận máy *</label>
+                        <input type="text" name="Khu_Vuc" placeholder="Ví dụ: Biên Hòa, Đồng Nai..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Yêu cầu đặc biệt (Nếu có)</label>
+                        <textarea name="Ghi_Chu" rows="3" placeholder="Ghi chú thêm về gầu xúc, càng nâng, hoặc ngân sách dự kiến..."></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- CỘT CAM KẾT UY TÍN (Bên Phải) -->
+            <div class="checkout-summary">
+                <h3>Tại Sao Chọn NGUYÊN MIK?</h3>
+                
+                <ul class="trust-list">
+                    <li>
+                        <div class="trust-icon">🏆</div>
+                        <div><strong>Sản Phẩm Chính Hãng</strong><br>Nhập khẩu nguyên chiếc mới 100%, đầy đủ giấy tờ, hóa đơn.</div>
+                    </li>
+                    <li>
+                        <div class="trust-icon">💰</div>
+                        <div><strong>Giá Tốt Nhất Khu Vực</strong><br>Báo giá sát gốc, linh hoạt phương thức thanh toán, hỗ trợ trả góp.</div>
+                    </li>
+                    <li>
+                        <div class="trust-icon">🛠️</div>
+                        <div><strong>Bảo Hành Chuyên Nghiệp</strong><br>Bảo hành 12 tháng tận nơi. Kỹ thuật viên hỗ trợ nhanh chóng 24/7.</div>
+                    </li>
+                    <li>
+                        <div class="trust-icon">🚚</div>
+                        <div><strong>Giao Máy Toàn Quốc</strong><br>Vận chuyển an toàn, bàn giao và hướng dẫn vận hành tận công trình.</div>
+                    </li>
+                </ul>
+
+                <div class="hotline-box">
+                    <p>Hoặc gọi ngay để được hỗ trợ gấp:</p>
+                    <h4>0963.094.111</h4>
+                </div>
+
+                <!-- Nút bấm Gửi Form (Đã tích hợp JS ngầm) -->
+                <button type="button" id="btn-submit-form" class="btn-confirm">Gửi Yêu Cầu Tư Vấn Ngay</button>
+                <p style="font-size: 13px; color: #aaa; text-align: center; margin-top: 15px; font-style: italic;">
+                    * Thông tin của bạn được bảo mật tuyệt đối.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- KHUNG MENU TRƯỢT MOBILE -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <div class="close-btn" id="close-btn">&times;</div>
+        <a href="index.html">Trang chủ</a>
+        <a href="index.html#xuc-lat">Máy xúc lật</a>
+        <a href="index.html#xe-nang">Xe nâng</a>
+        <a href="index.html#phu-kien">Phụ kiện</a>
+        <a href="index.html#lien-he">Liên hệ</a>
+    </div>
+
+    <!-- JAVASCRIPT ĐIỀU KHIỂN -->
+    <script>
+        // 1. Hiệu ứng Header
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (header) {
+                if (window.scrollY > 50) { header.classList.add('scrolled'); }
+                else { header.classList.remove('scrolled'); }
+            }
+        });
+
+        // 2. Menu Mobile
+        const hamburger = document.getElementById('hamburger');
+        const sideMenu = document.getElementById('side-menu');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('menu-overlay');
+
+        if (hamburger && sideMenu && overlay) {
+            hamburger.addEventListener('click', () => {
+                sideMenu.classList.add('active');
+                overlay.classList.add('active');
+            });
+        }
+        function closeMenu() {
+            if (sideMenu) sideMenu.classList.remove('active');
+            if (overlay) overlay.classList.remove('active');
+        }
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+
+        // --------------------------------------------------------
+        // 3. XỬ LÝ GỬI FORM NGẦM QUA FORMSPREE
+        // --------------------------------------------------------
+        const btnSubmit = document.getElementById("btn-submit-form");
+        const paymentForm = document.getElementById("paymentForm");
+
+        if (btnSubmit && paymentForm) {
+            btnSubmit.addEventListener("click", async function() {
+                
+                // Kiểm tra điền đủ thông tin
+                if (!paymentForm.reportValidity()) {
+                    return; 
+                }
+
+                // Đổi chữ trên nút
+                const originalText = btnSubmit.innerHTML;
+                btnSubmit.innerHTML = "Đang gửi thông tin...";
+                btnSubmit.disabled = true;
+
+                // Gửi dữ liệu
+                const data = new FormData(paymentForm);
+                try {
+                    const response = await fetch(paymentForm.action, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    // Xử lý kết quả
+                    if (response.ok) {
+                        alert("🎉 NGUYÊN MIK đã nhận được thông tin của bạn! Chuyên viên của chúng tôi sẽ gọi điện lại ngay trong ít phút nữa.");
+                        paymentForm.reset(); 
+                    } else {
+                        alert("Oops! Có lỗi xảy ra, bạn vui lòng gọi trực tiếp Hotline nhé.");
+                    }
+                } catch (error) {
+                    alert("Oops! Mạng có vấn đề, vui lòng kiểm tra kết nối WiFi/4G.");
+                }
+
+                // Trả lại nút bấm
+                btnSubmit.innerHTML = originalText;
+                btnSubmit.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html>
