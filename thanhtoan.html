@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán & Đặt Cọc | NGUYÊN MIK</title>
+    <style>
+        /* =========================================
+           1. FONT CHỮ VÀ RESET CƠ BẢN
+        ========================================= */
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f8; color: #333; }
+        * { box-sizing: border-box; }
+        
+        /* =========================================
+           2. CSS MENU (CHUẨN PC & MOBILE ĐÃ CHỐT)
+        ========================================= */
+        #header { background: #0b1c2c; width: 100%; position: fixed; top: 0; z-index: 1000; transition: 0.3s; padding: 15px 0; }
+        #header.scrolled { padding: 10px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo-box { text-decoration: none; color: #fff; display: flex; align-items: center; }
+        .logo-text h1 { margin: 0; font-size: 24px; color: #f39c12; }
+        .logo-text p { margin: 0; font-size: 12px; letter-spacing: 1px; }
+
+        .nav-menu-pc { display: flex !important; flex-direction: row !important; gap: 30px !important; list-style: none !important; margin: 0; padding: 0; align-items: center; }
+        .nav-menu-pc a { color: #fff !important; text-decoration: none !important; font-weight: bold !important; font-size: 16px !important; text-transform: uppercase !important; transition: 0.3s; }
+        .nav-menu-pc a:hover { color: #f39c12 !important; }
+        
+        .hamburger { display: none !important; } 
+        .side-menu, .menu-overlay { display: none; }
+
+        /* =========================================
+           3. CSS GIAO DIỆN TRANG THANH TOÁN
+        ========================================= */
+        .checkout-wrapper { margin-top: 100px; padding: 40px 20px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .checkout-title { text-align: center; color: #0b1c2c; font-size: 32px; margin-bottom: 40px; text-transform: uppercase; }
+        
+        .checkout-layout { display: flex; gap: 30px; flex-wrap: wrap; align-items: flex-start; }
+        
+        /* Cột trái: Form thông tin */
+        .checkout-form { flex: 1; min-width: 320px; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .checkout-form h3 { border-bottom: 2px solid #eee; padding-bottom: 15px; margin-top: 0; color: #0b1c2c; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #ccc; border-radius: 8px; font-family: inherit; font-size: 15px; outline: none; transition: 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #f39c12; box-shadow: 0 0 5px rgba(243, 156, 18, 0.3); }
+        
+        /* Cột phải: Đơn hàng & QR Code */
+        .checkout-summary { width: 400px; background: #fff; padding: 30px; border-radius: 12px; border: 2px solid #0b1c2c; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .summary-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #ccc; padding: 15px 0; }
+        .summary-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 5px; }
+        .item-info { flex: 1; margin-left: 15px; }
+        .item-info h4 { margin: 0 0 5px; color: #0b1c2c; }
+        .total-price { display: flex; justify-content: space-between; font-size: 20px; font-weight: bold; padding-top: 20px; color: #d35400; }
+        
+        /* Box quét QR */
+        .qr-box { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; text-align: center; margin-top: 25px; }
+        .qr-box h4 { margin-top: 0; color: #333; }
+        .qr-img { max-width: 100%; height: auto; border-radius: 10px; margin: 15px 0; }
+        
+        .btn-confirm { display: block; width: 100%; background: #f39c12; color: #fff; text-align: center; padding: 15px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 20px; transition: 0.3s; }
+        .btn-confirm:hover { background: #d68910; }
+
+        /* =========================================
+           4. CSS RESPONSIVE CHO MOBILE (DƯỚI 768px)
+        ========================================= */
+        @media (max-width: 768px) {
+            .nav-menu-pc { display: none !important; } 
+            .hamburger { display: block !important; font-size: 25px; cursor: pointer; padding: 10px; color: #fff; margin-left: auto; }
+            .side-menu { display: block !important; position: fixed; left: -250px; top: 0; width: 250px; height: 100vh; background: #07090a; transition: 0.3s; z-index: 99999; padding-top: 50px; overflow-y: auto; }
+            .side-menu.active { left: 0 !important; }
+            .side-menu a { display: block; color: #ffffff !important; padding: 15px; text-decoration: none; border-bottom: 1px solid #444; }
+            .close-btn { position: absolute; top: 10px; right: 20px; font-size: 30px; color: white; cursor: pointer; }
+            .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.6); z-index: 99998; }
+            .menu-overlay.active { display: block !important; }
+
+            /* Mobile Checkout */
+            .checkout-wrapper { padding: 20px 15px; }
+            .checkout-summary { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo-box">
+                <div class="logo-text">
+                    <h1>NGUYÊN MIK</h1>
+                    <p>Đỉnh Cao Máy Công Trình</p>
+                </div>
+            </a>
+            <ul class="nav-menu-pc">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="index.html#xuc-lat">Máy xúc lật</a></li>
+                <li><a href="index.html#xe-nang">Xe nâng</a></li>
+                <li><a href="index.html#phu-kien">Phụ kiện</a></li>
+                <li><a href="index.html#lien-he">Liên hệ</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">☰</div>
+        </div>
+    </header>
+
+    <!-- NỘI DUNG THANH TOÁN -->
+    <div class="checkout-wrapper">
+        <h2 class="checkout-title">Xác Nhận & Đặt Cọc</h2>
+        
+        <div class="checkout-layout">
+            
+            <!-- FORM ĐIỀN THÔNG TIN (Bên Trái) -->
+            <div class="checkout-form">
+                <h3>1. Thông Tin Khách Hàng</h3>
+                
+                <!-- ĐÃ GẮN LINK FORMSPREE VÀ THÊM THUỘC TÍNH NAME -->
+                <form id="paymentForm" action="https://formspree.io/f/mdaqnvyn" method="POST">
+                    <div class="form-group">
+                        <label>Họ và Tên / Tên Doanh Nghiệp *</label>
+                        <input type="text" name="Ho_Ten" placeholder="Nhập tên người nhận máy" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại *</label>
+                        <input type="tel" name="So_Dien_Thoai" placeholder="Ví dụ: 0963094111" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ nhận máy dự kiến *</label>
+                        <input type="text" name="Dia_Chi" placeholder="Nhập địa chỉ giao hàng" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Ghi chú thêm</label>
+                        <textarea name="Ghi_Chu" rows="3" placeholder="Yêu cầu riêng về lắp ráp, giao nhận..."></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- TÓM TẮT ĐƠN HÀNG & MÃ QR (Bên Phải) -->
+            <div class="checkout-summary">
+                <h3>2. Thông Tin Sản Phẩm</h3>
+                
+                <div class="summary-item">
+                    <!-- Bạn có thể thay link ảnh này thành ảnh máy LG918 thật của bạn -->
+                    <img src="lg918-1.jpg" alt="Máy Xúc Lật">
+                    <div class="item-info">
+                        <h4>Máy Xúc Lật LG918F</h4>
+                        <span style="color: #666; font-size: 14px;">Mới 100%, Nhập khẩu</span>
+                    </div>
+                </div>
+
+                <div class="total-price">
+                    <span>Số tiền ĐẶT CỌC:</span>
+                    <span>10.000.000 đ</span>
+                </div>
+
+                <!-- BOX MÃ QR CHUYỂN KHOẢN -->
+                <div class="qr-box">
+                    <h4>Quét Mã Để Chuyển Khoản</h4>
+                    <p style="font-size: 14px; color: #555; margin: 0;">Sử dụng App Ngân hàng (MB, Vietcombank...) quét mã để thanh toán tự động.</p>
+                    
+                    <!-- DÙNG API TẠO MÃ QR TỰ ĐỘNG -->
+                    <!-- Cấu trúc: https://img.vietqr.io/image/[MÃ_NGÂN_HÀNG]-[STK]-compact.png?amount=[SỐ_TIỀN]&addInfo=[NỘI_DUNG] -->
+                    <img class="qr-img" src="qrthanhtoan.jpg">
+                    
+                    <div style="text-align: left; background: #fff; padding: 10px; border-radius: 5px; font-size: 14px; margin-top: 10px;">
+                        <strong>NH:</strong> TechcomBank (Nội Bộ)<br>
+                        <strong>STK:</strong> 2002888848<br>
+                        <strong>Tên:</strong> DO NGUYEN DANG NGUYEN
+                    </div>
+                </div>
+<!-- Thêm một dòng ghi chú nhỏ -->
+                <p style="font-size: 13px; color: #d35400; text-align: center; margin-top: 20px; font-style: italic;">
+                    * Lưu ý: Đơn hàng chỉ được xác nhận sau khi kế toán kiểm tra tài khoản.
+                </p>
+                
+                <!-- Đổi chữ trên nút bấm cho hợp lý hơn -->
+                <button type="button" id="btn-submit-form" class="btn-confirm">Gửi Thông Tin Đặt Cọc</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- KHUNG MENU TRƯỢT MOBILE -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <div class="close-btn" id="close-btn">&times;</div>
+        <a href="index.html">Trang chủ</a>
+        <a href="index.html#xuc-lat">Máy xúc lật</a>
+        <a href="index.html#xe-nang">Xe nâng</a>
+        <a href="index.html#phu-kien">Phụ kiện</a>
+        <a href="index.html#lien-he">Liên hệ</a>
+    </div>
+
+    <!-- JAVASCRIPT ĐIỀU KHIỂN (DÙNG CHUNG + FORM) -->
+    <script>
+        // 1. Hiệu ứng Header
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (header) {
+                if (window.scrollY > 50) { header.classList.add('scrolled'); }
+                else { header.classList.remove('scrolled'); }
+            }
+        });
+
+        // 2. Menu Mobile
+        const hamburger = document.getElementById('hamburger');
+        const sideMenu = document.getElementById('side-menu');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('menu-overlay');
+
+        if (hamburger && sideMenu && overlay) {
+            hamburger.addEventListener('click', () => {
+                sideMenu.classList.add('active');
+                overlay.classList.add('active');
+            });
+        }
+        function closeMenu() {
+            if (sideMenu) sideMenu.classList.remove('active');
+            if (overlay) overlay.classList.remove('active');
+        }
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+
+       // --------------------------------------------------------
+        // XỬ LÝ GỬI FORM NGẦM (BẢN CHỐT KHÔNG THỂ NHẢY TRANG)
+        // --------------------------------------------------------
+        const btnSubmit = document.getElementById("btn-submit-form");
+        const paymentForm = document.getElementById("paymentForm");
+
+        if (btnSubmit && paymentForm) {
+            btnSubmit.addEventListener("click", async function() {
+                
+                // 1. Kiểm tra khách điền đủ thông tin chưa
+                if (!paymentForm.reportValidity()) {
+                    return; 
+                }
+
+                // 2. Đổi chữ trên nút để báo đang tải
+                const originalText = btnSubmit.innerHTML;
+                btnSubmit.innerHTML = "Đang gửi thông tin...";
+                btnSubmit.disabled = true;
+
+                // 3. Gói dữ liệu và gửi ngầm qua ống Formspree
+                const data = new FormData(paymentForm);
+                try {
+                    const response = await fetch(paymentForm.action, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    // 4. Kiểm tra kết quả trả về
+                    if (response.ok) {
+                        alert("🎉 Cảm ơn bạn! Hệ thống đã ghi nhận thông tin đặt cọc. Nhân viên NGUYÊN MIK sẽ liên hệ lại ngay để xác nhận đơn hàng!");
+                        paymentForm.reset(); // Xóa trắng form cho gọn
+                    } else {
+                        alert("Oops! Gửi thất bại. Bạn thử lại nhé.");
+                    }
+                } catch (error) {
+                    alert("Oops! Mạng có vấn đề, vui lòng kiểm tra kết nối WiFi/4G.");
+                }
+
+                // 5. Trả lại nút bấm trạng thái ban đầu
+                btnSubmit.innerHTML = originalText;
+                btnSubmit.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html>

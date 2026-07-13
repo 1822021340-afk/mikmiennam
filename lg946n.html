@@ -91,27 +91,79 @@
             .product-detail-container { grid-template-columns: 1fr; }
             .main-image { height: 300px; }
         }
+        /* =========================================
+   1. CSS MENU TRÊN PC (MÀN HÌNH LỚN)
+========================================= */
+.nav-menu-pc {
+    display: flex !important; 
+    flex-direction: row !important; 
+    gap: 30px !important; 
+    list-style: none !important; 
+    margin: 0; padding: 0; align-items: center;
+}
+.nav-menu-pc a {
+    color: #fff !important; 
+    text-decoration: none !important; 
+    font-weight: bold !important; 
+    font-size: 16px !important; 
+    text-transform: uppercase !important;
+}
+.nav-menu-pc a:hover { color: #f39c12 !important; }
+.hamburger { display: none !important; } 
+.side-menu, .menu-overlay { display: none; }
+
+/* =========================================
+   2. CSS MENU TRÊN MOBILE (DƯỚI 768px)
+========================================= */
+@media (max-width: 768px) {
+    .nav-menu-pc { display: none !important; } 
+    
+    .hamburger { display: block !important; font-size: 25px; cursor: pointer; padding: 10px; color: #fff; margin-left: auto; }
+    
+    .side-menu {
+        display: block !important; position: fixed; left: -250px; top: 0; width: 250px; height: 100vh;
+        background: #07090a; transition: 0.3s; z-index: 99999; padding-top: 50px; overflow-y: auto;
+    }
+    .side-menu.active { left: 0 !important; }
+    .side-menu a { display: block; color: #ffffff !important; padding: 15px; text-decoration: none; border-bottom: 1px solid #444; }
+    .close-btn { position: absolute; top: 10px; right: 20px; font-size: 30px; color: white; cursor: pointer; }
+    
+    .menu-overlay {
+        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background: rgba(0, 0, 0, 0.6); z-index: 99998;
+    }
+    .menu-overlay.active { display: block !important; }
+}
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header id="header">
-        <div class="nav-container">
-            <a href="index.html" class="logo-box">
-                <div class="logo-text">
-                    <h1>NGUYÊN MIK</h1>
-                    <p>Đỉnh Cao Máy Công Trình</p>
-                </div>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Trang Chủ</a></li>
-                <li><a href="index.html#xuc-lat">Xúc Lật</a></li>
-                <li><a href="index.html#gap">Máy Gắp</a></li>
-                <li><a href="index.html#xe-nang">Xe Nâng</a></li>
-            </ul>
-        </div>
-    </header>
+    <!-- HEADER KÍNH MỜ -->
+<header id="header">
+    <div class="nav-container">
+        <!-- Logo -->
+        <a href="index.html" class="logo-box">
+            <div class="logo-text">
+                <h1>NGUYÊN MIK</h1>
+                <p>Đỉnh Cao Máy Công Trình</p>
+            </div>
+        </a>
+        
+        <!-- MENU NGANG CHO PC (Có link trỏ về trang chủ index.html) -->
+        <ul class="nav-menu-pc">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="index.html#xuc-lat">Máy xúc lật</a></li>
+            <li><a href="index.html#xe-nang">Xe nâng</a></li>
+            <li><a href="index.html#phu-kien">Phụ kiện</a></li>
+            <li><a href="tuyendung.html">Tuyển dụng</a></li>
+			<li><a href="index.html#kien-thuc">Kiến thức vận hành</a></li>
+            <li><a href="index.html#lien-he">Liên hệ</a></li>
+        </ul>
+
+        <!-- Nút 3 gạch cho Mobile -->
+        <div class="hamburger" id="hamburger">☰</div>
+    </div>
+</header>
 
     <!-- BREADCRUMB -->
     <div class="breadcrumb">
@@ -221,5 +273,73 @@
             element.classList.add('active');
         }
     </script>
+    <!-- KHUNG MENU TRƯỢT MOBILE (Có link trỏ về index.html) -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <div class="close-btn" id="close-btn">&times;</div>
+        <a href="index.html">Trang chủ</a>
+        <a href="index.html#xuc-lat">Máy xúc lật</a>
+        <a href="index.html#xe-nang">Xe nâng</a>
+        <a href="index.html#phu-kien">Phụ kiện</a>
+        <li><a href="tuyendung.html">Tuyển dụng</a></li>
+		<li><a href="index.html#kien-thuc">Kiến thức vận hành</a></li>
+        <a href="index.html#lien-he">Liên hệ</a>
+    </div>
+
+    <!-- JAVASCRIPT ĐIỀU KHIỂN -->
+    <script>
+        // Hiệu ứng Header mờ khi cuộn
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (header) {
+                if (window.scrollY > 50) { header.classList.add('scrolled'); }
+                else { header.classList.remove('scrolled'); }
+            }
+        });
+
+        // Nút Xem thêm / Thu gọn (Nếu trang có dùng)
+        function toggleSection(sectionId, button) {
+            var section = document.getElementById(sectionId);
+            if (!section) return;
+            var defaultText = button.innerHTML.replace("▲", "▼").replace("Thu Gọn", "Xem Thêm");
+            if (section.style.display === "block") {
+                section.style.display = "none";
+                button.innerHTML = defaultText;
+            } else {
+                section.style.display = "block";
+                button.innerHTML = defaultText.replace("Xem Thêm", "Thu Gọn").replace("▼", "▲");
+            }
+        }
+
+        // Đóng mở Menu Mobile
+        const hamburger = document.getElementById('hamburger');
+        const sideMenu = document.getElementById('side-menu');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('menu-overlay');
+
+        if (hamburger && sideMenu && overlay) {
+            hamburger.addEventListener('click', () => {
+                sideMenu.classList.add('active');
+                overlay.classList.add('active');
+            });
+        }
+
+        function closeMenu() {
+            if (sideMenu) sideMenu.classList.remove('active');
+            if (overlay) overlay.classList.remove('active');
+        }
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+
+        const menuLinks = document.querySelectorAll('.side-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
+    <div style="text-align: center; margin-top: 50px; padding: 20px; background: #f4f4f4;">
+    <h3>BẠN CẦN TƯ VẤN THÊM?</h3>
+    <p>Đội ngũ MIK Miền Nam luôn sẵn sàng hỗ trợ 24/7.</p>
+    <a href="tel:0963094111" style="font-weight: bold; color: #D48806;">☎ Hotline: 0963.094.111</a>
+</div>
 </body>
 </html>
