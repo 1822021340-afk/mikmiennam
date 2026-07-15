@@ -223,16 +223,38 @@
     padding: 0;
     align-items: center;
 }
-.nav-menu-pc a {
-    color: #fff; 
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    text-transform: uppercase;
-}
-.nav-menu-pc a:hover {
-    color: #f39c12; 
-}
+/* 1. Trạng thái bình thường của chữ */
+        .nav-menu-pc a { 
+            color: #ffffff !important; /* Chữ màu trắng */
+            text-decoration: none !important; 
+            font-weight: bold !important; 
+            font-size: 16px !important; 
+            text-transform: uppercase !important; 
+            position: relative; /* Cái này cực quan trọng để làm mốc cho vạch kẻ */
+            transition: all 0.3s ease; 
+            padding-bottom: 5px; /* Khoảng cách từ chữ xuống vạch kẻ */
+        }
+
+        /* 2. Tạo một vạch kẻ tàng hình ở dưới chữ (chiều rộng ban đầu = 0) */
+        .nav-menu-pc a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px; /* Độ dày của vạch kẻ */
+            background-color: #f39c12; /* Màu cam vàng thương hiệu */
+            bottom: 0;
+            left: 50%; /* Canh giữa */
+            transform: translateX(-50%);
+            transition: width 0.3s ease; /* Tốc độ trượt của vạch */
+        }
+
+        /* 3. Hiệu ứng khi khách đưa chuột vào (Hover) */
+        .nav-menu-pc a:hover { 
+            color: #f39c12 !important; /* Chữ sáng lên màu cam */
+        }
+        .nav-menu-pc a:hover::after {
+            width: 100%; /* Vạch kẻ chạy dài ra 100% bằng với chữ */
+        }
 
 .hamburger { display: none; }
 .side-menu, .menu-overlay { display: none; }
@@ -628,7 +650,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <span>Đa Dạng Công Năng</span>
-                <h2>Phụ Kiện Tháo Lắp</h2>
+                <h2>Bộ Công Tác</h2>
             </div>
             
             <div class="grid-cards">
