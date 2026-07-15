@@ -3,91 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi tiết Xe Nâng 2.5 Tấn - Động cơ Xinchai - MIK MIỀN NAM</title>
-    
-    <!-- Logo tab -->
-    <link rel="icon" type="image/png" href="logo-mik.png">
-
-    <!-- Font Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <title>Xe Nâng Dầu 2.5 Tấn - Động Cơ Xinchai | NGUYÊN MIK</title>
     <style>
-        /* === CƠ BẢN === */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
-        html { scroll-behavior: smooth; }
-        body { background-color: #f8f9fc; color: #2b2d42; line-height: 1.6; }
-
-        /* === MENU === */
-        header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 12px 0; background: rgba(11, 37, 69, 0.98); }
-        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
-        .logo-text h1 { font-size: 24px; color: #F4A261; font-weight: 900; }
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-menu a { color: #fff; text-decoration: none; font-weight: 600; font-size: 13px; text-transform: uppercase; }
-
-        /* === SẢN PHẨM === */
-        .product-detail-container { max-width: 1200px; margin: 100px auto 50px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .main-image { width: 100%; height: 500px; border-radius: 12px; overflow: hidden; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .main-image img { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
-
-        /* === THÔNG TIN === */
-        .product-info h1 { font-size: 32px; color: #0B2545; font-weight: 900; margin-bottom: 20px; }
-        .specs-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-        .specs-table th, .specs-table td { padding: 15px; border: 1px solid #ddd; }
-        .specs-table th { background: #f1f3f5; width: 40%; }
+        /* =========================================
+           1. FONT CHỮ VÀ RESET CƠ BẢN
+        ========================================= */
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f8; color: #333; }
+        * { box-sizing: border-box; }
         
-        .action-buttons { display: flex; flex-direction: column; gap: 15px; }
-        .btn-call { background: #e76f51; color: #fff; text-align: center; padding: 16px; border-radius: 8px; font-weight: 800; text-decoration: none; }
-        .btn-zalo { background: #0068ff; color: #fff; text-align: center; padding: 16px; border-radius: 8px; font-weight: 800; text-decoration: none; }
+        /* =========================================
+           2. CSS MENU NỀN TRẮNG (ĐỒNG BỘ TRANG CHỦ)
+        ========================================= */
+        #header { background: #080321; width: 100%; position: fixed; top: 0; z-index: 1000; transition: 0.3s; padding: 10px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo-box { text-decoration: none; display: flex; align-items: center; }
+        .logo-text p { margin: 5px 0 0 0; font-size: 12px; letter-spacing: 1px; color: #d6dadd; font-weight: bold; text-align: center; }
+
+        .nav-menu-pc { display: flex !important; flex-direction: row !important; gap: 30px !important; list-style: none !important; margin: 0; padding: 0; align-items: center; }
+        .nav-menu-pc a { color: #d8dce0 !important; text-decoration: none !important; font-weight: bold !important; font-size: 16px !important; text-transform: uppercase !important; transition: 0.3s; }
+        .nav-menu-pc a:hover { color: #f39c12 !important; }
+        
+        .hamburger { display: none !important; } 
+        .side-menu, .menu-overlay { display: none; }
+
+        /* =========================================
+           3. CSS BỐ CỤC TRANG CHI TIẾT SẢN PHẨM
+        ========================================= */
+        .product-page { max-width: 1200px; margin: 120px auto 50px auto; padding: 0 20px; }
+        
+        .product-hero { display: flex; gap: 40px; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); flex-wrap: wrap; }
+        
+        .product-gallery { flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center; }
+        .main-img { width: 100%; max-width: 500px; border-radius: 8px; transition: transform 0.3s; }
+        .main-img:hover { transform: scale(1.02); }
+        
+        .product-info { flex: 1; min-width: 300px; }
+        .product-info h1 { margin-top: 0; color: #004a8f; font-size: 32px; line-height: 1.3; }
+        .brand { font-size: 16px; color: #7f8c8d; margin-bottom: 15px; font-weight: bold; display: inline-block; padding: 5px 15px; background: #f0f2f5; border-radius: 20px; }
+        
+        .short-desc { line-height: 1.6; color: #555; margin-bottom: 30px; font-size: 16px; border-left: 4px solid #f39c12; padding-left: 15px; }
+        .short-desc ul { padding-left: 20px; margin-top: 10px; }
+        .short-desc li { margin-bottom: 8px; font-weight: 500; }
+
+        /* Nút bấm */
+        .btn-call { display: block; width: 100%; background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; text-align: center; padding: 15px; border-radius: 8px; font-size: 18px; font-weight: bold; text-decoration: none; margin-bottom: 15px; transition: 0.3s; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3); }
+        .btn-call:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5); }
+
+        .btn-zalo { display: block; width: 100%; background: linear-gradient(135deg, #0068ff, #0052cc); color: #fff; text-align: center; padding: 15px; border-radius: 8px; font-size: 18px; font-weight: bold; text-decoration: none; margin-bottom: 15px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0, 104, 255, 0.3); }
+        .btn-zalo:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 104, 255, 0.5); }
+
+        .btn-deposit { display: block; width: 100%; background: linear-gradient(135deg, #27ae60, #219150); color: #fff; text-align: center; padding: 15px; border-radius: 8px; font-size: 18px; font-weight: bold; text-decoration: none; text-transform: uppercase; transition: 0.3s; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); }
+        .btn-deposit:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(39, 174, 96, 0.5); }
+
+        /* Bảng thông số */
+        .tech-specs { margin-top: 40px; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .tech-specs h2 { color: #004a8f; border-bottom: 3px solid #f39c12; padding-bottom: 10px; display: inline-block; margin-top: 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; box-shadow: 0 0 0 1px #eee; border-radius: 8px; overflow: hidden; }
+        th, td { padding: 18px 20px; text-align: left; border-bottom: 1px solid #eee; font-size: 16px; }
+        th { background-color: #f8f9fa; color: #004a8f; width: 40%; font-weight: bold; }
+        td { color: #444; font-weight: 500; }
+        tr:last-child th, tr:last-child td { border-bottom: none; }
+        tr:hover { background-color: #fdfdfd; }
+
+        /* =========================================
+           4. CSS RESPONSIVE CHO MOBILE
+        ========================================= */
+        @media (max-width: 768px) {
+            .nav-menu-pc { display: none !important; } 
+            .hamburger { display: block !important; font-size: 28px; cursor: pointer; padding: 5px 10px; color: #ffffff; margin-left: auto; }
+            .side-menu { display: block !important; position: fixed; left: -250px; top: 0; width: 250px; height: 100vh; background: #272424; box-shadow: 2px 0 10px rgba(0,0,0,0.1); transition: 0.3s; z-index: 99999; padding-top: 60px; }
+            .side-menu.active { left: 0 !important; }
+            .side-menu a { display: block; color: #fff3f3 !important; padding: 15px 20px; text-decoration: none; font-weight: bold; border-bottom: 1px solid #eee; }
+            .close-btn { position: absolute; top: 15px; right: 20px; font-size: 30px; color: #333; cursor: pointer; }
+            .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.6); z-index: 99998; }
+            .menu-overlay.active { display: block !important; }
+
+            .product-hero { padding: 20px; }
+            .product-info h1 { font-size: 26px; }
+            .tech-specs { padding: 20px; }
+            th, td { padding: 12px 15px; font-size: 15px; }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo-text"><h1>NGUYÊN MIK</h1></a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Trang Chủ</a></li>
-            </ul>
+   <!-- HEADER KÍNH MỜ -->
+    <header id="header">
+    <div class="nav-container">
+        <!-- Logo -->
+        <a href="index.html" class="logo-box">
+        <div class="logo-text">
+            <!-- Logo đã được lót nền trắng, bo góc và bỏ lệnh hòa trộn -->
+            <img src="logo-mik.png" alt="Logo NGUYÊN MIK" style="height: 48px; width: auto; background-color: #ffffff; padding: 4px 12px; border-radius: 6px; display: block;">
         </div>
-    </header>
+    </a>
+        
+        <!-- MENU NGANG CHO PC (Có link trỏ về trang chủ index.html) -->
+        <ul class="nav-menu-pc">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="index.html#xuc-lat">Máy xúc lật</a></li>
+            <li><a href="index.html#xe-nang">Xe nâng</a></li>
+            <li><a href="index.html#phu-kien">Phụ kiện</a></li>
+            <li><a href="tuyendung.html">Tuyển dụng</a></li>
+			<li><a href="index.html#kien-thuc">Kiến thức vận hành</a></li>
+            <li><a href="index.html#lien-he">Liên hệ</a></li>
+        </ul>
 
-    <section class="product-detail-container">
-        <div class="main-image">
-            <img src="xenang2.5txinchai.jpg" alt="Xe nâng 2.5 Tấn Xinchai">
-        </div>
+        <!-- Nút 3 gạch cho Mobile -->
+        <div class="hamburger" id="hamburger">☰</div>
+    </div>
+</header>
 
-        <div class="product-info">
-            <h1>Xe nâng 2,5 Tấn - Động cơ Xinchai</h1>
-            <div class="action-buttons">
+    <!-- CHI TIẾT SẢN PHẨM -->
+    <div class="product-page">
+        <div class="product-hero">
+            <div class="product-gallery">
+                <img src="xenang2.5txinchai.jpg" alt="Xe nâng 2.5 Tấn Xinchai" class="main-img">
+            </div>
+            
+            <div class="product-info">
+                <h1>Xe nâng 2.5 Tấn - Động cơ Xinchai</h1>
+                <div class="brand">🚀 Sẵn hàng giao ngay</div>
+                
+                <div class="short-desc">
+                    Cỗ máy nâng hạ bền bỉ, sử dụng khối động cơ Xinchai C490 trứ danh. Giải pháp kinh tế, thu hồi vốn nhanh, đáp ứng cường độ làm việc cao cho nhà xưởng, kho bãi vật liệu.
+                    <ul>
+                        <li>Vận hành êm ái với hộp số tự động.</li>
+                        <li>Phụ tùng thay thế phổ thông, dễ dàng bảo dưỡng.</li>
+                        <li>Thiết kế khung gầm đúc khối chịu tải vượt trội.</li>
+                    </ul>
+                </div>
+
                 <a href="tel:0963094111" class="btn-call">📞 GỌI NGAY: 0963.094.111</a>
-                <a href="https://zalo.me/0963094111" target="_blank" class="btn-zalo">CHAT ZALO NHẬN BÁO GIÁ</a>
+                <a href="https://zalo.me/0963094111" class="btn-zalo" target="_blank">💬 CHAT ZALO NHẬN BÁO GIÁ CHI TIẾT</a>
+                <a href="thanhtoan.html" class="btn-deposit">💳 ĐĂNG KÝ TƯ VẤN & BÁO GIÁ LĂN BÁNH</a>
             </div>
         </div>
-    </section>
 
-    <section style="max-width: 1200px; margin: 0 auto 50px auto; padding: 20px;">
-        <h3>Thông số kỹ thuật</h3>
-        <table class="specs-table" style="margin-top: 20px;">
-            <tr><th>Tải trọng</th><td>2,5 Tấn</td></tr>
-            <tr><th>Động cơ</th><td>Xinchai C490</td></tr>
-            <tr><th>Công suất</th><td>40 kW</td></tr>
-            <tr><th>Chiều cao nâng</th><td>3 mét</td></tr>
-            <tr><th>Vận hành</th><td>Số tự động</td></tr>
-            <tr><th>Lốp trước</th><td>28x9-15</td></tr>
-            <tr><th>Lốp sau</th><td>650-10</td></tr>
-        </table>
-    </section>
-<script>
-    // Khóa click chuột phải
-    document.addEventListener('contextmenu', event => event.preventDefault());
-    
-    // Khóa các phím tắt chuyên copy và xem mã nguồn (F12, Ctrl+U, Ctrl+Shift+I)
-    document.onkeydown = function(e) {
-        if(e.keyCode == 123) { return false; } // F12
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
-        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
-    }
-</script>
+        <!-- BẢNG THÔNG SỐ (Lấy đúng theo ảnh của sếp) -->
+        <div class="tech-specs">
+            <h2>⚙️ Thông Số Kỹ Thuật</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Tải trọng</th>
+                        <td>2,5 Tấn</td>
+                    </tr>
+                    <tr>
+                        <th>Động cơ</th>
+                        <td>Xinchai C490</td>
+                    </tr>
+                    <tr>
+                        <th>Công suất</th>
+                        <td>40 kW</td>
+                    </tr>
+                    <tr>
+                        <th>Chiều cao nâng</th>
+                        <td>3 mét</td>
+                    </tr>
+                    <tr>
+                        <th>Vận hành</th>
+                        <td>Số tự động</td>
+                    </tr>
+                    <tr>
+                        <th>Lốp trước</th>
+                        <td>28x9-15</td>
+                    </tr>
+                    <tr>
+                        <th>Lốp sau</th>
+                        <td>650-10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- KHUNG MENU TRƯỢT MOBILE (Có link trỏ về index.html) -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <div class="side-menu" id="side-menu">
+        <div class="close-btn" id="close-btn">&times;</div>
+        <a href="index.html">Trang chủ</a>
+        <a href="index.html#xuc-lat">Máy xúc lật</a>
+        <a href="index.html#xe-nang">Xe nâng</a>
+        <a href="index.html#phu-kien">Phụ kiện</a>
+        <li><a href="tuyendung.html">Tuyển dụng</a></li>
+		<li><a href="index.html#kien-thuc">Kiến thức vận hành</a></li>
+        <a href="index.html#lien-he">Liên hệ</a>
+    </div>
+
+    <!-- CODE BẢO VỆ TRANG CHỐNG COPY -->
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) { return false; } 
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } 
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } 
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } 
+            if(e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } 
+        }
+    </script>
+
+    <!-- CODE STATCOUNTER -->
+    <script type="text/javascript">
+    var sc_project=13336076; 
+    var sc_invisible=1; 
+    var sc_security="fbadcc5d"; 
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics Made Easy -
+    Statcounter" href="https://statcounter.com/" target="_blank"><img
+    class="statcounter" src="https://c.statcounter.com/13336076/0/fbadcc5d/1/"
+    alt="Web Analytics" referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+    <!-- JAVASCRIPT ĐIỀU KHIỂN MENU MOBILE -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const sideMenu = document.getElementById('side-menu');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('menu-overlay');
+
+        if (hamburger && sideMenu && overlay) {
+            hamburger.addEventListener('click', () => {
+                sideMenu.classList.add('active');
+                overlay.classList.add('active');
+            });
+        }
+        function closeMenu() {
+            if (sideMenu) sideMenu.classList.remove('active');
+            if (overlay) overlay.classList.remove('active');
+        }
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+        if (overlay) overlay.addEventListener('click', closeMenu);
+    </script>
 </body>
 </html>
