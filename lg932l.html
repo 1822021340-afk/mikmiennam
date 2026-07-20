@@ -211,12 +211,19 @@
                 <div class="thumb" onclick="changeImage('lg932l-5.jpg', this)"><img src="lg932l-5.jpg" alt="Góc 5"></div>
             </div>
         </div>
-
         <!-- Cột Phải: Giá & Chốt Sale -->
         <div class="product-info">
             <span class="brand-badge">Bản Chuyên Nông Sản - Dăm Gỗ</span>
             <h1>Máy Xúc Lật LG932L</h1>
-            
+             <!-- Chọn phiên bản -->
+<div class="product-options" style="margin-bottom: 15px;">
+  <label for="bo-cong-tac" style="font-weight: bold;">Chọn phiên bản:</label>
+  <select id="bo-cong-tac" style="padding: 8px; border-radius: 5px;">
+    <option value="gau-tieu-chuan">Bản Gầu Xúc Tiêu Chuẩn</option>
+    <option value="kep-go">Bản Kẹp Gỗ </option>
+    <option value="gau-nong-san">Bản Gầu nông sản</option>
+  </select>
+</div>
             <div class="price-box">
                 <p>Giá tham khảo (Chưa VAT):</p>
                 <h2>Liên Hệ Nhận Ưu Đãi</h2>
@@ -393,6 +400,21 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
         if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
     }
+</script>
+<script>
+function doiPhienBan(loai) {
+    // Lấy thẻ ảnh chính đang hiển thị
+    var anhChinh = document.getElementById("featured-image");
+    
+    // Kiểm tra xem khách chọn loại nào để đổi ảnh tương ứng
+    if (loai === "kep-go") {
+        anhChinh.src = "kep-go-932l.jpg"; // Gọi ảnh kẹp gỗ
+    } else if (loai === "gau-nong-san") {
+        anhChinh.src = "gau-nong-san.jpg"; // Gọi ảnh gầu nông sản
+    } else {
+        anhChinh.src = "lg932l-1.jpg"; // Trả về ảnh gầu tiêu chuẩn ban đầu
+    }
+}
 </script>
 </body>
 </html>
